@@ -1,0 +1,99 @@
+name: UltimateRPGPlugin
+version: '0.0.1 ALPHA'
+main: Ultimate.huh.core.UltimateRPGPlugin
+api-version: '1.16'
+load: STARTUP
+
+author: "Huh_DIETHGOD"
+
+depend: [PlaceholderAPI]
+
+commands:
+  urpg:
+    description: Main command for URPG
+
+permissions:
+  #Default Player
+  urpg.Tier1:
+    description: default permissions
+    children:
+      urpg.info: true
+      urpg.help: true
+      urpg.rua: true
+      urpg.test: true
+      urpg.login: true
+      urpg.register: true
+      urpg.gui: true
+      urpg.storage: true
+
+  #Staff
+  urpg.Tier2:
+    description: ability to use Tier2 commands
+    children:
+      urpg.Tier1: true
+      urpg.version: true
+      urpg.announce: true
+      urpg.config: true
+      urpg.itemlist: true
+
+  #Admin
+  urpg.Tier3:
+    description: ability to use Tier3 commands
+    children:
+      urpg.Tier2: true
+      urpg.register: true
+      urpg.unregister: true
+      urpg.configchange: true
+      urpg.spawnVillager: true
+      urpg.reload: true
+      urpg.give: true
+
+
+  #Onwer
+  urpg.Tier4:
+    description: ability to use Tier4 commands
+    children:
+      urpg.Tier3: true
+      urpg.System: true
+
+  urpg.rua:
+    default: not op
+    description: allows you to rua the author QwQ
+  urpg.help:
+    default: not op
+    description: allows you to view the list of URPG commands
+  urpg.info:
+    default: not op
+    description: allows you to view the information of the URPG plugin
+  urpg.test:
+    default: op
+    description: allows you test plugin status
+  urpg.itemlist:
+    default: op
+    Wadescription: allows youview the list of URPG items
+  urpg.version:
+    default: op
+    description: allows you to view the version of URPG plugin
+  urpg.announcement:
+    default: op
+    description: allows you to make announcement to all the players
+  urpg.config:
+    default: op
+    description: allows you to view the config
+  urpg.configchange:
+    default: op
+    description: allows you to change the config
+  urpg.register:
+    default: op
+    description: allows you to register URPG plugin
+  urpg.unregister:
+    default: op
+    description: allows you to unregister URPG plugin
+  urpg.spawnVillager:
+    default: op
+    description: allows you to spawn TradeVillager
+  urpg.reload:
+    default: op
+    description: allows you to reload URPG plugin
+
+
