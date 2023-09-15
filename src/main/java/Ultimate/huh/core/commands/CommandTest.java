@@ -14,7 +14,7 @@ public class CommandTest extends URPGCommands {
         super("test", new String[0]);
     }
 
-    public void evaluate(@NotNull UltimateRPGPlugin plugin, @NotNull CommandSender sender, @NotNull String alias, @NotNull @Unmodifiable List<String> params) {
+    public void URPGCommand(@NotNull UltimateRPGPlugin plugin, @NotNull CommandSender sender, @NotNull String alias, @NotNull @Unmodifiable List<String> params) {
         sender.sendMessage(ChatColor.AQUA + "[UltimateRPGPlugin]  " + ChatColor.GREEN + "The Plugin is available now.");
         sender.sendMessage(ChatColor.AQUA + "[UltimateRPGPlugin]  " + ChatColor.GREEN + "Enjoy :)");
     }

@@ -18,7 +18,7 @@ public class CommandAnnouncement extends URPGCommands {
         super("announce", new String[0]);
     }
 
-    public void evaluate(@NotNull UltimateRPGPlugin plugin, @NotNull CommandSender sender, @NotNull String alias, @NotNull @Unmodifiable List<String> params) {
+    public void URPGCommand(@NotNull UltimateRPGPlugin plugin, @NotNull CommandSender sender, @NotNull String alias, @NotNull @Unmodifiable List<String> params) {
         Bukkit.getServer().broadcastMessage(ChatColor.AQUA + "[UltimateRPGPlugin]" + ChatColor.YELLOW + " Announcement:\n"
                 + params.get(0));
     }

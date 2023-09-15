@@ -42,7 +42,7 @@ public class URPGCommandsRouter implements CommandExecutor, TabCompleter {
         if (args.length == 0) {
             URPGCommands fallback = (URPGCommands)this.commands.get("version");
             if (fallback != null) {
-                fallback.evaluate(this.plugin, sender, "", Collections.emptyList());
+                fallback.URPGCommand(this.plugin, sender, "", Collections.emptyList());
             }
 
             return true;
@@ -58,7 +58,7 @@ public class URPGCommandsRouter implements CommandExecutor, TabCompleter {
                     Msg.msg(sender, new String[]{ChatColor.AQUA + "[UltimateRPGPlugin] " + ChatColor.RED + "You do not have permission to do this!"});
                     return true;
                 } else {
-                    target.evaluate(this.plugin, sender, search, Arrays.asList(Arrays.copyOfRange(args, 1, args.length)));
+                    target.URPGCommand(this.plugin, sender, search, Arrays.asList(Arrays.copyOfRange(args, 1, args.length)));
                     return true;
                 }
             }

@@ -95,5 +95,6 @@
             <artifactId>easysql-api</artifactId>
             <version>0.4.7</version>
         </dependency>
+
     </dependencies>
 </project>

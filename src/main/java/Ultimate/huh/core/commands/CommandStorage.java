@@ -18,7 +18,7 @@ public class CommandStorage extends URPGCommands {
         super("storage", new String[0]);
     }
 
-    public void evaluate(@NotNull UltimateRPGPlugin plugin, @NotNull CommandSender sender, @NotNull String alias, @NotNull @Unmodifiable List<String> params) {
+    public void URPGCommand(@NotNull UltimateRPGPlugin plugin, @NotNull CommandSender sender, @NotNull String alias, @NotNull @Unmodifiable List<String> params) {
         if (sender instanceof Player) {
             Player player = (Player) sender;
             Inventory remoteInventory = StorageHolder.getInventory(player.getName());

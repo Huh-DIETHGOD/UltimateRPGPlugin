@@ -30,7 +30,7 @@ public class CommandEasy_SQL extends URPGCommands {
     private static UltimateRPGPlugin instance;
 
 
-    public void evaluate(@NotNull UltimateRPGPlugin plugin, @NotNull CommandSender sender, @NotNull String alias, @NotNull @Unmodifiable List<String> params) {
+    public void URPGCommand(@NotNull UltimateRPGPlugin plugin, @NotNull CommandSender sender, @NotNull String alias, @NotNull @Unmodifiable List<String> params) {
         boolean flag = false;
         String[] args = params.toArray(new String[params.size()]);
         if (params.size() >= 0) {

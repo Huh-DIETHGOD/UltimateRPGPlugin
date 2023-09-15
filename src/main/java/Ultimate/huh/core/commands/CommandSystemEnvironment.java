@@ -16,7 +16,7 @@ public class CommandSystemEnvironment extends URPGCommands {
         super("system", new String[0]);
     }
 
-    public void evaluate(@NotNull UltimateRPGPlugin plugin, @NotNull CommandSender sender, @NotNull String alias, @NotNull @Unmodifiable List<String> params) {
+    public void URPGCommand(@NotNull UltimateRPGPlugin plugin, @NotNull CommandSender sender, @NotNull String alias, @NotNull @Unmodifiable List<String> params) {
         Properties p = System.getProperties();// 获取当前的系统属性
         p.list(System.out);// 将属性列表输出
         Msg.msg(sender,"CPU core:\n"+//Runtime.getRuntime() 获取当前运行时的实例

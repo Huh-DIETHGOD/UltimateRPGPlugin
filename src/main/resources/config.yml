@@ -4,4 +4,4 @@ Ultimate:
     driver: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306
     username: root
-    password: root
+    password: 1q2w3e4r
