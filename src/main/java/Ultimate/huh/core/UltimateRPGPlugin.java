@@ -15,7 +15,6 @@ import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.sql.SQLException;
-import java.util.List;
 import java.util.Objects;
 import java.util.logging.Logger;
 
