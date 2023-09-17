@@ -1,5 +1,8 @@
 package Ultimate.huh.core.events;
 
+import Ultimate.huh.core.MySQL.MySQLManager;
+import Ultimate.huh.core.UltimateRPGPlugin;
+import org.bukkit.Location;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 import org.bukkit.event.player.PlayerLoginEvent;
@@ -12,6 +15,7 @@ public class EventPlayerLogin extends Event {
         String playerName = event.getPlayer().getName();
         String PlayerUUID = event.getPlayer().getUniqueId().toString();
         String player = String.valueOf(event.getPlayer());
+        Location PlayerLocation = event.getPlayer().getLocation();
 
 
     }

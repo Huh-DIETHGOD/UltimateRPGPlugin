@@ -21,10 +21,7 @@ public class CommandEasy_SQL extends URPGCommands {
     protected CommandEasy_SQL(@NotNull String label, String... alias) {
         super("sql", new String[0]);
     }
-
     SQLManager sqlManager;
-
-
 
     Logger logger;
     private static UltimateRPGPlugin instance;

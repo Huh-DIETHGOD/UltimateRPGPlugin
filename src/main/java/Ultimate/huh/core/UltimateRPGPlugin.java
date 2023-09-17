@@ -90,7 +90,7 @@ public final class UltimateRPGPlugin extends JavaPlugin {
         try {
             if (!sqlManager.getConnection().isValid(5)) {
                 getLogger().severe(ChatColor.AQUA + "[UltimateRPGPlugin] " + ChatColor.RED + "SQL Connection out of time!");
-                Bukkit.getPluginManager().disablePlugin(this);
+                //Bukkit.getPluginManager().disablePlugin(this);
             }
         } catch (SQLException e) {
             getLogger().severe(ChatColor.AQUA + "[UltimateRPGPlugin] " + ChatColor.RED + "SQL Connection Failed! Please Check config file!");
