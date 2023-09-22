@@ -1,11 +1,13 @@
 package Ultimate.huh.core;
 
+import Ultimate.huh.core.MySQL.DataTable;
 import Ultimate.huh.core.commands.impl.URPGCommandsRouter;
 import Ultimate.huh.core.events.EventsManager;
 import Ultimate.huh.core.listeners.onGUIClickListener;
 import Ultimate.huh.core.metrics.Metrics;
 import cc.carm.lib.easysql.EasySQL;
 import cc.carm.lib.easysql.api.SQLManager;
+import cc.carm.lib.easysql.api.SQLTable;
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -17,6 +19,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.sql.SQLException;
 import java.util.Objects;
 import java.util.logging.Logger;
+
+import static jdk.internal.misc.OSEnvironment.initialize;
 
 public final class UltimateRPGPlugin extends JavaPlugin {
     private static UltimateRPGPlugin instance;
@@ -40,6 +44,16 @@ public final class UltimateRPGPlugin extends JavaPlugin {
         this.setupCommand();
         this.setupEvents();
         this.setupSQLManager();
+
+        sqlManager.createTable("UltimateRPGPlugin")
+                .addColumn("playerName", "VARCHAR(32) AUTO_INCREMENT NOT NULL PRIMARY KEY")
+                .addColumn("id","VARCHAR(64)")
+                .addColumn("name","VARCHAR(64)")
+                .addColumn("value", "INT(100)")
+        ;
+        sqlManager.createInsert("UltimateRPGPlugin");
+
+        DataTable.initialize(sqlManager,"UltimateRPGPlugin");
 
         Metrics metrics = new Metrics(this, pluginId);
         metrics.addCustomChart(new Metrics.SimplePie("chart_id", () -> "My value"));

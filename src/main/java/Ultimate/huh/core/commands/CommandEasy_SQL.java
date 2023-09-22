@@ -55,7 +55,6 @@ public class CommandEasy_SQL extends URPGCommands {
     private boolean executeQuery(CommandSender sender, String[] args) {
         if (args.length >= 2) {
             sender.sendMessage("查询前线程：" + Thread.currentThread().getName());
-
             /**
              * SELECT id, name, uuid, money
              * FROM player
@@ -103,7 +102,7 @@ public class CommandEasy_SQL extends URPGCommands {
                     concurrentHashMap.put("id", resultSet1.getInt("id"));
                     concurrentHashMap.put("name", resultSet1.getString("name"));
                     concurrentHashMap.put("uuid", resultSet1.getString("uuid"));
-                    concurrentHashMap.put("money", resultSet1.getInt("money"));
+                    concurrentHashMap.put("value", resultSet1.getInt("value"));
                 }
 
                 sender.sendMessage("EasySql创建的线程：" + Thread.currentThread().getName());
