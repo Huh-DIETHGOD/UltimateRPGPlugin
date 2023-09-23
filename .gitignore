@@ -1,2 +1,5 @@
 # Project exclude paths
-/target/
+/target/!/src/Depends/PlaceholderAPI-2.11.3.jar
+!/src/Depends/Vault.jar
+!/src/Depends/
+!/src/Depends/XConomy-Bukkit-2.25.5.jar

@@ -25,6 +25,7 @@ public enum DataTable {
             try {
                 value.get().create(manager, tablePrefix);
             } catch (SQLException e) {
+                System.err.println(e.getMessage());
                 // 提示异常
             }
         }

@@ -10,8 +10,8 @@ import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.stream.Collectors;
 
-public class Msg {
-    public Msg() {
+public class MsgUtil {
+    public MsgUtil() {
     }
 
     public static void log(Level level, String msg, Object... args) {
@@ -40,13 +40,13 @@ public class Msg {
 
     public static void msg(@NotNull CommandSender sender, String... messages) {
         if (messages.length != 0) {
-            sender.sendMessage((String) Arrays.stream(messages).map(Ultimate.huh.core.utils.Msg::color).collect(Collectors.joining("\n")));
+            sender.sendMessage((String) Arrays.stream(messages).map(MsgUtil::color).collect(Collectors.joining("\n")));
         }
     }
 
     public static void broadcast(String... messages) {
         if (messages.length != 0) {
-            Bukkit.broadcastMessage((String)Arrays.stream(messages).map(Ultimate.huh.core.utils.Msg::color).collect(Collectors.joining("\n")));
+            Bukkit.broadcastMessage((String)Arrays.stream(messages).map(MsgUtil::color).collect(Collectors.joining("\n")));
         }
     }
 

@@ -1,6 +1,6 @@
 package Ultimate.huh.core.listeners;
 
-import Ultimate.huh.core.utils.PlayerDataSaver;
+import Ultimate.huh.core.utils.PlayerDataSaverUtil;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -13,7 +13,7 @@ public class onPlayerLoginListener implements Listener {
         String PlayerName = player.getName();
 
 
-        PlayerDataSaver PlayerDataSaver = new PlayerDataSaver(player);
+        PlayerDataSaverUtil PlayerDataSaverUtil = new PlayerDataSaverUtil(player);
 
         if (player.getName().equals("")) {
 

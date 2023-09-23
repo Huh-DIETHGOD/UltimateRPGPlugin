@@ -18,7 +18,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 
 public class CommandEasy_SQL extends URPGCommands {
-    protected CommandEasy_SQL(@NotNull String label, String... alias) {
+    public CommandEasy_SQL() {
         super("sql", new String[0]);
     }
     SQLManager sqlManager;

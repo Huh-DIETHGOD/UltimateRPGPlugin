@@ -2,15 +2,16 @@ name: UltimateRPGPlugin
 version: '0.0.1 ALPHA'
 main: Ultimate.huh.core.UltimateRPGPlugin
 api-version: '1.16'
-load: STARTUP
 
 author: "Huh_DIETHGOD"
 
-depend: [PlaceholderAPI]
+depend: [PlaceholderAPI, Vault, XConomy]
+
+database: true
 
 commands:
   urpg:
-    description: Main command for URPG
+    description: Main command for UltimateRPG
 
 permissions:
   #Default Player

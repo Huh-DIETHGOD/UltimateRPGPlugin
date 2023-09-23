@@ -4,10 +4,10 @@ import cc.carm.lib.easysql.api.SQLManager;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-public class PlayerDataSaver {
+public class PlayerDataSaverUtil {
     private SQLManager SQLManager;
 
-    public PlayerDataSaver(@NotNull Player player){
+    public PlayerDataSaverUtil(@NotNull Player player){
 
 
     }

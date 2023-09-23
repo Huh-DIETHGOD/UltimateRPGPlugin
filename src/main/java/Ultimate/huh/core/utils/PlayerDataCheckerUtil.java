@@ -1,6 +1,6 @@
 package Ultimate.huh.core.utils;
 
-public class PlayerDataChecker {
+public class PlayerDataCheckerUtil {
     public boolean checkPlayerData() {
 
 

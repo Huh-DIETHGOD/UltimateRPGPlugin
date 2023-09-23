@@ -2,7 +2,7 @@ package Ultimate.huh.core.commands.impl;
 
 import Ultimate.huh.core.UltimateRPGPlugin;
 import Ultimate.huh.core.commands.*;
-import Ultimate.huh.core.utils.Msg;
+import Ultimate.huh.core.utils.MsgUtil;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import org.bukkit.ChatColor;
@@ -19,7 +19,7 @@ import java.util.stream.Stream;
 public class URPGCommandsRouter implements CommandExecutor, TabCompleter {
     private static final @Unmodifiable List<URPGCommands> COMMANDS = ImmutableList.of(new CommandInfo(),
             new CommandAnnouncement(), new CommandGUI(), new CommandStorage(), new CommandTest(), new CommandRua(),
-            new CommandSystemEnvironment());
+            new CommandSystemEnvironment(), new CommandEasy_SQL(), new CommandLogin(), new CommandRegister());
     private final @NotNull UltimateRPGPlugin plugin;
     private final @NotNull @Unmodifiable Map<String, URPGCommands> commands;
 
@@ -50,12 +50,12 @@ public class URPGCommandsRouter implements CommandExecutor, TabCompleter {
             String search = args[0].toLowerCase(Locale.ROOT);
             URPGCommands target = (URPGCommands)this.commands.get(search);
             if (target == null) {
-                Msg.msg(sender, new String[]{ChatColor.AQUA + "[UltimateRPGPlugin] " + ChatColor.RED + "Unknown command " + ChatColor.YELLOW + search});
+                MsgUtil.msg(sender, new String[]{ChatColor.AQUA + "[UltimateRPGPlugin] " + ChatColor.RED + "Unknown command " + ChatColor.YELLOW + search});
                 return true;
             } else {
                 String permission = target.getPermission();
                 if (permission != null && !permission.isEmpty() && !sender.hasPermission(permission)) {
-                    Msg.msg(sender, new String[]{ChatColor.AQUA + "[UltimateRPGPlugin] " + ChatColor.RED + "You do not have permission to do this!"});
+                    MsgUtil.msg(sender, new String[]{ChatColor.AQUA + "[UltimateRPGPlugin] " + ChatColor.RED + "You do not have permission to do this!"});
                     return true;
                 } else {
                     target.URPGCommand(this.plugin, sender, search, Arrays.asList(Arrays.copyOfRange(args, 1, args.length)));
