@@ -7,6 +7,8 @@ import Ultimate.huh.core.listeners.onGUIClickListener;
 import Ultimate.huh.core.metrics.Metrics;
 import cc.carm.lib.easysql.EasySQL;
 import cc.carm.lib.easysql.api.SQLManager;
+import me.yic.xconomy.api.XConomyAPI;
+import me.yic.xconomy.info.SyncChannalType;
 import net.milkbowl.vault.chat.Chat;
 import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.permission.Permission;
@@ -31,7 +33,7 @@ public final class UltimateRPGPlugin extends JavaPlugin {
     private static Economy econ = null;
     private static Permission perms = null;
     private static Chat chat = null;
-
+    private XConomyAPI XAPI = new XConomyAPI();
     public UltimateRPGPlugin(){}
 
     @Override
@@ -53,14 +55,12 @@ public final class UltimateRPGPlugin extends JavaPlugin {
         setupChat();
 
         // XConomy plugin
+        XAPI.getversion();
+        XAPI.getSyncChannalType();
         instance = this;
         getLogger().info("XConomy successfully enabled!");
 
         logger.info(ChatColor.AQUA + "[UltimateRPGPlugin] " + ChatColor.GREEN + "Loading" + ChatColor.AQUA + "UltimateRPG plugin");
-        // Plugin startup logic
-
-        Bukkit.getPluginManager().registerEvents(new onGUIClickListener(), this);
-
         //Integration registration
         this.setupCommand();
         this.setupEvents();
@@ -136,6 +136,7 @@ public final class UltimateRPGPlugin extends JavaPlugin {
 
     private boolean setupEconomy() {
         if (getServer().getPluginManager().getPlugin("Vault") == null) {
+            getLogger().info("finding vault error");
             return false;
         }
         RegisteredServiceProvider<Economy> rsp = getServer().getServicesManager().getRegistration(Economy.class);
