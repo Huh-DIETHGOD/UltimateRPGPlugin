@@ -3,7 +3,6 @@
     <output-path>$PROJECT_DIR$/out/artifacts/UltimateRPGPlugin</output-path>
     <root id="archive" name="UltimateRPGPlugin.jar">
       <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/config.yml" />
-      <element id="library" level="application" name="mysql-connector-j-8.1.0" />
     </root>
   </artifact>
 </component>

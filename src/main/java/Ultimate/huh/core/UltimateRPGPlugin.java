@@ -3,12 +3,10 @@ package Ultimate.huh.core;
 import Ultimate.huh.core.MySQL.DataTable;
 import Ultimate.huh.core.commands.impl.URPGCommandsRouter;
 import Ultimate.huh.core.events.EventsManager;
-import Ultimate.huh.core.listeners.onGUIClickListener;
 import Ultimate.huh.core.metrics.Metrics;
 import cc.carm.lib.easysql.EasySQL;
 import cc.carm.lib.easysql.api.SQLManager;
 import me.yic.xconomy.api.XConomyAPI;
-import me.yic.xconomy.info.SyncChannalType;
 import net.milkbowl.vault.chat.Chat;
 import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.permission.Permission;
@@ -33,7 +31,7 @@ public final class UltimateRPGPlugin extends JavaPlugin {
     private static Economy econ = null;
     private static Permission perms = null;
     private static Chat chat = null;
-    private XConomyAPI XAPI = new XConomyAPI();
+    private final XConomyAPI XAPI = new XConomyAPI();
     public UltimateRPGPlugin(){}
 
     @Override
@@ -44,6 +42,7 @@ public final class UltimateRPGPlugin extends JavaPlugin {
         // bStatus plugin
         int pluginId = 19633;
         Metrics metrics = new Metrics(this, pluginId);
+        metrics.addCustomChart(new Metrics.SimplePie("chart_id", () -> "My value"));
 
         // Vault plugin
         if (!setupEconomy() ) {
@@ -64,7 +63,7 @@ public final class UltimateRPGPlugin extends JavaPlugin {
         //Integration registration
         this.setupCommand();
         this.setupEvents();
-        this.setupSQLManager();
+        this.setupSQLManager(); //Error
 
         sqlManager.createTable("UltimateRPGPlugin")
                 .addColumn("playerName", "VARCHAR(32) AUTO_INCREMENT NOT NULL PRIMARY KEY")
@@ -76,14 +75,13 @@ public final class UltimateRPGPlugin extends JavaPlugin {
 
         DataTable.initialize(sqlManager,"UltimateRPGPlugin");
 
-        metrics.addCustomChart(new Metrics.SimplePie("chart_id", () -> "My value"));
     }
 
     @Override
     public void onDisable() {
+        // Plugin shutdown logic
         super.onDisable();
         getLogger().info(String.format("Disabled Version %s", getDescription().getName(), getDescription().getVersion()));
-        // Plugin shutdown logic
         HandlerList.unregisterAll(this);
         if (Objects.nonNull(sqlManager)) {
             EasySQL.shutdownManager(sqlManager);
@@ -120,7 +118,7 @@ public final class UltimateRPGPlugin extends JavaPlugin {
             return;
         }
 
-        sqlManager = EasySQL.createManager(Driver, Url, userName, Password);
+        sqlManager = EasySQL.createManager(Driver, Url, userName, Password); //Error checking
         try {
             if (!sqlManager.getConnection().isValid(5)) {
                 getLogger().severe(ChatColor.AQUA + "[UltimateRPGPlugin] " + ChatColor.RED + "SQL Connection out of time!");
@@ -149,13 +147,13 @@ public final class UltimateRPGPlugin extends JavaPlugin {
 
     private boolean setupChat() {
         RegisteredServiceProvider<Chat> rsp = getServer().getServicesManager().getRegistration(Chat.class);
-        chat = rsp.getProvider();
+        //chat = rsp.getProvider(); //NullPointerException
         return chat != null;
     }
 
     private boolean setupPermissions() {
         RegisteredServiceProvider<Permission> rsp = getServer().getServicesManager().getRegistration(Permission.class);
-        perms = rsp.getProvider();
+        //perms = rsp.getProvider(); //NullPointerException
         return perms != null;
     }
 
