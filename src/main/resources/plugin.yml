@@ -2,6 +2,7 @@ name: UltimateRPGPlugin
 version: '0.0.1 ALPHA'
 main: Ultimate.huh.core.UltimateRPGPlugin
 api-version: '1.16'
+log: true
 
 author: "Huh_DIETHGOD"
 
@@ -71,7 +72,7 @@ permissions:
     description: allows you test plugin status
   urpg.itemlist:
     default: op
-    Wadescription: allows youview the list of URPG items
+    Wadescription: allows you view the list of URPG items
   urpg.version:
     default: op
     description: allows you to view the version of URPG plugin
@@ -96,5 +97,8 @@ permissions:
   urpg.reload:
     default: op
     description: allows you to reload URPG plugin
+  urpg.sql:
+    default: op
+    description: allows you to use database
 
 

@@ -65,14 +65,6 @@ public final class UltimateRPGPlugin extends JavaPlugin {
         this.setupEvents();
         this.setupSQLManager(); //Error
 
-        sqlManager.createTable("UltimateRPGPlugin")
-                .addColumn("playerName", "VARCHAR(32) AUTO_INCREMENT NOT NULL PRIMARY KEY")
-                .addColumn("id","VARCHAR(64)")
-                .addColumn("name","VARCHAR(64)")
-                .addColumn("value", "INT(100)")
-        ;
-        sqlManager.createInsert("UltimateRPGPlugin");
-
         DataTable.initialize(sqlManager,"UltimateRPGPlugin");
 
     }
@@ -106,30 +98,36 @@ public final class UltimateRPGPlugin extends JavaPlugin {
         this.saveDefaultConfig();
         this.reloadConfig();
         FileConfiguration config = this.getConfig();
-        String Driver = config.getString("Ultimate.datasource.driver");
-        String Url = config.getString("Ultimate.datasource.url");
-        String userName = config.getString("Ultimate.datasource.username");
-        String Password = config.getString("Ultimate.datasource.password");
+        String driver = config.getString("Ultimate.datasource.driver");
+        String url = config.getString("Ultimate.datasource.url");
+        String username = config.getString("Ultimate.datasource.username");
+        String password = config.getString("Ultimate.datasource.password");
 
-        if (StringUtils.isBlank(Driver) || StringUtils.isBlank(Url) || StringUtils.isBlank(userName) || StringUtils.isBlank(Password)) {
-            getLogger().severe(ChatColor.AQUA + "[UltimateRPGPlugin] " + ChatColor.RED + "Config can not be null! please check!");
-            getLogger().severe(ChatColor.AQUA + "[UltimateRPGPlugin] " + ChatColor.RED + "The plugin will be disabled!");
-            //Bukkit.getPluginManager().disablePlugin(this);
+        if (StringUtils.isBlank(driver) | StringUtils.isBlank(url) | StringUtils.isBlank(username) | StringUtils.isBlank(password)) {
+            this.getLogger().severe("[UltimateRPGPlugin] Config can not be null! please check!");
+            this.getLogger().severe("[UltimateRPGPlugin] The plugin will be disabled!");
             return;
         }
 
-        sqlManager = EasySQL.createManager(Driver, Url, userName, Password); //Error checking
         try {
-            if (!sqlManager.getConnection().isValid(5)) {
-                getLogger().severe(ChatColor.AQUA + "[UltimateRPGPlugin] " + ChatColor.RED + "SQL Connection out of time!");
-                //Bukkit.getPluginManager().disablePlugin(this);
-            }
-        } catch (SQLException e) {
-            getLogger().severe(ChatColor.AQUA + "[UltimateRPGPlugin] " + ChatColor.RED + "SQL Connection Failed! Please Check config file!");
-            getLogger().warning(ChatColor.AQUA + "[UltimateRPGPlugin] " + ChatColor.RED + e);
-            //Bukkit.getPluginManager().disablePlugin(this);
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            sqlManager = EasySQL.createManager(driver, url, username, password);
+        } catch (Exception e) {
+            getLogger().severe(e.getMessage());
+            e.printStackTrace();
         }
 
+
+        try {
+            if (!sqlManager.getConnection().isValid(5)) {
+                getLogger().severe("[UltimateRPGPlugin] SQL Connection timed out!");
+                Bukkit.getPluginManager().disablePlugin(this);
+            }
+        } catch (SQLException e) {
+            getLogger().severe("[UltimateRPGPlugin] SQL Connection Failed! Please check the config file!");
+            getLogger().warning("[UltimateRPGPlugin] " + e);
+            Bukkit.getPluginManager().disablePlugin(this);
+        }
     }
 
     private boolean setupEconomy() {

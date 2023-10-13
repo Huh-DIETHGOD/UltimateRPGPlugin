@@ -2,6 +2,6 @@
 Ultimate:
   datasource:
     driver: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/UltimateRPGPlugin?useunicode=true&CharacterEncoding=UTF-8&useSSL=false
+    url: jdbc:mysql://localhost:3306/URPGTable?useUnicode=true&characterEncoding=utf8&useSSL=true&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
     username: root
     password: 1q2w3e4r
