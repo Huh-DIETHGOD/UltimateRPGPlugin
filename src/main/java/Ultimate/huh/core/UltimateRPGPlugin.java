@@ -59,13 +59,14 @@ public final class UltimateRPGPlugin extends JavaPlugin {
         instance = this;
         getLogger().info("XConomy successfully enabled!");
 
-        logger.info(ChatColor.AQUA + "[UltimateRPGPlugin] " + ChatColor.GREEN + "Loading" + ChatColor.AQUA + "UltimateRPG plugin");
-        //Integration registration
+        // Load plugin
+        logger.info("Loading UltimateRPG plugin");
+        // Integration registration
         this.setupCommand();
         this.setupEvents();
         this.setupSQLManager(); //Error
 
-        DataTable.initialize(sqlManager,"UltimateRPGPlugin");
+        DataTable.initialize(sqlManager,"URPG");
 
     }
 
@@ -110,13 +111,11 @@ public final class UltimateRPGPlugin extends JavaPlugin {
         }
 
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            sqlManager = EasySQL.createManager(driver, url, username, password);
+            sqlManager = EasySQL.createManager(driver, url, username, password); //Error
         } catch (Exception e) {
             getLogger().severe(e.getMessage());
             e.printStackTrace();
         }
-
 
         try {
             if (!sqlManager.getConnection().isValid(5)) {

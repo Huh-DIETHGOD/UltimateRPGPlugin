@@ -100,11 +100,17 @@
             <artifactId>easysql-hikaricp</artifactId>
             <version>0.4.7</version>
         </dependency>
+
         <dependency>
             <groupId>com.github.MilkBowl</groupId>
             <artifactId>VaultAPI</artifactId>
             <version>1.7</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.25</version>
         </dependency>
         <dependency>
             <groupId>com.github.YiC200333</groupId>
