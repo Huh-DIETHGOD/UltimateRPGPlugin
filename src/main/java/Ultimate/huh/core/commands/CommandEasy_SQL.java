@@ -18,67 +18,59 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 
 public class CommandEasy_SQL extends URPGCommands {
-    public CommandEasy_SQL() {
-        super("sql", new String[0]);
-    }
-    SQLManager sqlManager;
 
+    public CommandEasy_SQL() {
+        super("sql" , new String[0]);
+    }
+
+    SQLManager sqlManager;
     Logger logger;
     private static UltimateRPGPlugin instance;
-
 
     public void URPGCommand(@NotNull UltimateRPGPlugin plugin, @NotNull CommandSender sender, @NotNull String alias, @NotNull @Unmodifiable List<String> params) {
         boolean flag = false;
         String[] args = params.toArray(new String[params.size()]);
+
         if (params.size() >= 0) {
             switch (params.get(0)) {
                 case "query":
-                    // /urpg sql query <playerName>
+                    // /urpg sql query <playerName> <colum>
                     flag = executeQuery(sender, args);
                     break;
                 case "insert":
-                    // /urpg sql insert <playerName>
+                    // /urpg sql insert <playerName> <selection> <newData>
                     flag = executeInsert(sender, args);
                     break;
                 case "update":
-                    // /urpg sql update <playerName> <money>
+                    // /urpg sql update <playerName> <selection> <newData>
                     flag = executeUpdate(sender, args);
                     break;
                 case "delete":
-                    // /urpg sql delete <playerName>
+                    // /urpg sql delete <playerName> <selection>
                     flag = executeDelete(sender, args);
+                    break;
+                case "replace":
+                    // /urpg sql replace <playerName> <selection> <newData>
+                    flag = executeReplace(sender, args);
                     break;
             }
         }
     }
 
     private boolean executeQuery(CommandSender sender, String[] args) {
+
         if (args.length >= 2) {
-            sender.sendMessage("查询前线程：" + Thread.currentThread().getName());
-            /**
-             * SELECT id, name, uuid, money
-             * FROM player
-             * WHERE name = 'args[1]的值'
-             * ORDER BY id DESC
-             * LIMIT 0, 5
-             */
+            sender.sendMessage("current thread: " + Thread.currentThread().getName());
             //得到查询构建器
             QueryAction queryAction = sqlManager.createQuery()
                     //指明需要操作的table表
-                    .inTable("player")
+                    .inTable("URPGTable")
                     //指明需要操作的column字段
-                    .selectColumns("id", "name", "uuid", "money")
-                    //添加where查询条件
-                    .addCondition("name", args[1])
-                    //还支持字符串拼接的形式，以及多次调用#addCondition来拼接多条where条件
-                    //.addCondition("name = '" + args[1] + "'")
-                    //.addCondition("uuid", "玩家UUID")
-                    //Order by
+                    .selectColumns(args[2])
+                    //搜索内容
+                    .addCondition("playerName", args[1])
                     .orderBy("id", false)
-                    //LIMIT 0, 5    LIMIT实现的分页，CRUD人基操了（
                     .setPageLimit(0, 5)
-                    //.setLimit(5)      //同效果于上面的 LIMIT 0, 5
-                    //构建查询
                     .build();
 
             /**
@@ -100,7 +92,7 @@ public class CommandEasy_SQL extends URPGCommands {
                 //上面的查询结果只有一个，就直接这样写了
                 if (resultSet1.next()) {
                     concurrentHashMap.put("id", resultSet1.getInt("id"));
-                    concurrentHashMap.put("name", resultSet1.getString("name"));
+                    concurrentHashMap.put("playerName", resultSet1.getString("name"));
                     concurrentHashMap.put("uuid", resultSet1.getString("uuid"));
                     concurrentHashMap.put("value", resultSet1.getInt("value"));
                 }
@@ -137,15 +129,10 @@ public class CommandEasy_SQL extends URPGCommands {
             Player player = Bukkit.getPlayer(args[1]);
 
             if (Objects.nonNull(player)) {
-                /**
-                 * INSERT INTO player(name, uuid)
-                 * VALUE('玩家名', '玩家的UUID')
-                 */
-                //直接链式编程一气呵成
-                sqlManager.createInsert("player")
-                        .setColumnNames("name", "uuid")                 //需要插入的字段名，顺序与下面的Params顺序一致
+                sqlManager.createInsert("URPGTable")
+                        .setColumnNames("uuid", "playerName", "value") //需要插入的字段名，顺序与下面的Params顺序一致
                         .setParams(args[1], player.getUniqueId())
-                        .executeAsync();                                //非查询操作不需要build，直接execute | executeAsync
+                        .executeAsync(); //非查询操作不需要build，直接execute | executeAsync
 
                 sender.sendMessage("插入成功");
                 return true;
@@ -212,7 +199,6 @@ public class CommandEasy_SQL extends URPGCommands {
             Player player = Bukkit.getPlayer(args[1]);
             sender.sendMessage("正在搜寻玩家：" + args[1]);
             if (Objects.nonNull(player)) {
-
                 /**
                  * DELETE FROM player
                  * WHERE name = '玩家名'
@@ -228,6 +214,12 @@ public class CommandEasy_SQL extends URPGCommands {
             sender.sendMessage("玩家不存在");
             return true;
         }
+        return false;
+    }
+
+    private boolean executeReplace(CommandSender sender, String[] args) {
+
+
         return false;
     }
 

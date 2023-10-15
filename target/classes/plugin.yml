@@ -49,6 +49,8 @@ permissions:
       urpg.spawnVillager: true
       urpg.reload: true
       urpg.give: true
+      urpg.sql: true
+      urpg.scoreboard: true
 
 
   #Onwer
@@ -100,5 +102,8 @@ permissions:
   urpg.sql:
     default: op
     description: allows you to use database
+  urpg.scoreboard:
+    default: op
+    description: allows you to use scoreboard
 
 

@@ -9,7 +9,7 @@ import org.jetbrains.annotations.Nullable;
 import java.sql.SQLException;
 
 public enum DataTable {
-    UltimateRPGPluginTable(SQLTable.of("UltimateRPGPluginTable", (table) -> {
+    UltimateRPGPluginTable(SQLTable.of("PlayerData", (table) -> {
         table.addAutoIncrementColumn("playerName", true);
         table.addColumn("ID", "TEXT NOT NULL");
         table.addColumn("value", "INT UNSIGNED NOT NULL");
