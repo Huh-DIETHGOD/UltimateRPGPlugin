@@ -11,7 +11,7 @@ public class onXconomy implements Listener {
     //监听所有转账事件（全局事件除外）
     //Listen to all transfer events (except global events)
     @EventHandler
-    private void listenaccount(AccountEvent event) {
+    private void listenAccount(AccountEvent event) {
         MsgUtil.info(event.getaccountname());
         MsgUtil.info(event.getamount().toString());
     }
@@ -19,7 +19,7 @@ public class onXconomy implements Listener {
     //监听所有非玩家账户转账事件
     //Listen to all non-player account transfer events
     @EventHandler
-    private void listennonaccount(NonPlayerAccountEvent event) {
+    private void listenNonAccount(NonPlayerAccountEvent event) {
         MsgUtil.info(event.getaccountname());
         MsgUtil.info(event.getamount().toString());
     }
@@ -27,7 +27,7 @@ public class onXconomy implements Listener {
     //监听所有玩家账户转账事件（全局事件除外）
     //Listen to all player account transfer events (except global events)
     @EventHandler
-    private void listenplayeraccount(PlayerAccountEvent event) {
+    private void listenPlayerAccount(PlayerAccountEvent event) {
         MsgUtil.info(event.getUniqueId().toString());
         MsgUtil.info(event.getamount().toString());
     }
