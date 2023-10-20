@@ -98,7 +98,7 @@ public final class UltimateRPGPlugin extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(this.getEventsManager(), this);
     }
 
-    private void setupSQLManager() {
+    public void setupSQLManager() {
         this.saveDefaultConfig();
         this.reloadConfig();
         FileConfiguration config = this.getConfig();
