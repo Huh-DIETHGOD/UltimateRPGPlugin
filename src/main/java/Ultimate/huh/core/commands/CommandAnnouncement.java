@@ -1,7 +1,7 @@
 package Ultimate.huh.core.commands;
 
 import Ultimate.huh.core.UltimateRPGPlugin;
-import Ultimate.huh.core.commands.impl.URPGCommands;
+import Ultimate.huh.core.commands.impl.URPGCommandsFactory;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
@@ -10,7 +10,7 @@ import org.jetbrains.annotations.Unmodifiable;
 
 import java.util.List;
 
-public class CommandAnnouncement extends URPGCommands {
+public class CommandAnnouncement extends URPGCommandsFactory {
 
     public CommandAnnouncement() {
         super("announce", new String[0]);

@@ -1,7 +1,7 @@
 package Ultimate.huh.core.commands;
 
 import Ultimate.huh.core.UltimateRPGPlugin;
-import Ultimate.huh.core.commands.impl.URPGCommands;
+import Ultimate.huh.core.commands.impl.URPGCommandsFactory;
 import Ultimate.huh.core.holders.StorageHolder;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
@@ -12,7 +12,7 @@ import org.jetbrains.annotations.Unmodifiable;
 
 import java.util.List;
 
-public class CommandStorage extends URPGCommands {
+public class CommandStorage extends URPGCommandsFactory {
     private static Integer storageSpace = 54;
     public CommandStorage() {
         super("storage", new String[0]);

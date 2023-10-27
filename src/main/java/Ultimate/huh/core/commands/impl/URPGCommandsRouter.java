@@ -17,19 +17,19 @@ import java.util.*;
 import java.util.stream.Stream;
 
 public class URPGCommandsRouter implements CommandExecutor, TabCompleter {
-    private static final @Unmodifiable List<URPGCommands> COMMANDS = ImmutableList.of(new CommandInfo(),
+    private static final @Unmodifiable List<URPGCommandsFactory> COMMANDS = ImmutableList.of(new CommandInfo(),
             new CommandAnnouncement(), new CommandGUI(), new CommandStorage(), new CommandTest(), new CommandRua(),
             new CommandSystemEnvironment(), new CommandEasy_SQL(), new CommandLogin(), new CommandRegister(),new CommandScoreboard());
     private final @NotNull UltimateRPGPlugin plugin;
-    private final @NotNull @Unmodifiable Map<String, URPGCommands> commands;
+    private final @NotNull @Unmodifiable Map<String, URPGCommandsFactory> commands;
 
     public URPGCommandsRouter(@NotNull UltimateRPGPlugin plugin) {
         this.plugin = plugin;
-        ImmutableMap.Builder<String, URPGCommands> commands = ImmutableMap.builder();
+        ImmutableMap.Builder<String, URPGCommandsFactory> commands = ImmutableMap.builder();
         Iterator CommandIterator = COMMANDS.iterator();
 
         while(CommandIterator.hasNext()) {
-            URPGCommands command = (URPGCommands)CommandIterator.next();
+            URPGCommandsFactory command = (URPGCommandsFactory)CommandIterator.next();
             command.getLabels().forEach((label) -> {
                 commands.put(label, command);
             });
@@ -40,7 +40,7 @@ public class URPGCommandsRouter implements CommandExecutor, TabCompleter {
 
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String alias, @NotNull String[] args) {
         if (args.length == 0) {
-            URPGCommands fallback = (URPGCommands)this.commands.get("version");
+            URPGCommandsFactory fallback = (URPGCommandsFactory)this.commands.get("version");
             if (fallback != null) {
                 fallback.URPGCommand(this.plugin, sender, "", Collections.emptyList());
             }
@@ -48,7 +48,7 @@ public class URPGCommandsRouter implements CommandExecutor, TabCompleter {
 
         } else {
             String search = args[0].toLowerCase(Locale.ROOT);
-            URPGCommands target = (URPGCommands)this.commands.get(search);
+            URPGCommandsFactory target = (URPGCommandsFactory)this.commands.get(search);
             if (target == null) {
                 MsgUtil.msg(sender, new String[]{ChatColor.AQUA + "[UltimateRPGPlugin] " + ChatColor.RED + "Unknown command " + ChatColor.YELLOW + search});
                 return true;
@@ -71,15 +71,15 @@ public class URPGCommandsRouter implements CommandExecutor, TabCompleter {
     public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String alias, @NotNull String[] args) {
         List<String> suggestions = new ArrayList();
         if (args.length > 1) {
-            URPGCommands target = (URPGCommands)this.commands.get(args[0].toLowerCase(Locale.ROOT));
+            URPGCommandsFactory target = (URPGCommandsFactory)this.commands.get(args[0].toLowerCase(Locale.ROOT));
             if (target != null) {
                 target.complete(this.plugin, sender, args[0].toLowerCase(Locale.ROOT), Arrays.asList(Arrays.copyOfRange(args, 1, args.length)), suggestions);
             }
 
             return suggestions;
         } else {
-            Stream<String> targets = URPGCommands.filterByPermission(sender, this.commands.values().stream()).map(URPGCommands::getLabels).flatMap(Collection::stream);
-            URPGCommands.suggestByParameter(targets, suggestions, args.length == 0 ? null : args[0]);
+            Stream<String> targets = URPGCommandsFactory.filterByPermission(sender, this.commands.values().stream()).map(URPGCommandsFactory::getLabels).flatMap(Collection::stream);
+            URPGCommandsFactory.suggestByParameter(targets, suggestions, args.length == 0 ? null : args[0]);
             return suggestions;
         }
     }

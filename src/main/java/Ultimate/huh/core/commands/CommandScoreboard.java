@@ -1,7 +1,7 @@
 package Ultimate.huh.core.commands;
 
 import Ultimate.huh.core.UltimateRPGPlugin;
-import Ultimate.huh.core.commands.impl.URPGCommands;
+import Ultimate.huh.core.commands.impl.URPGCommandsFactory;
 import Ultimate.huh.core.scoreboard.impl.NoFlickeringScoreboardCreationStrategyImpl;
 import Ultimate.huh.core.scoreboard.impl.ScoreboardCreationStrategyImpl;
 import Ultimate.huh.core.utils.ScoreboardUtil;
@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-public class CommandScoreboard extends URPGCommands {
+public class CommandScoreboard extends URPGCommandsFactory {
     public CommandScoreboard() {
         super("scoreboard", new String[0]);
     }

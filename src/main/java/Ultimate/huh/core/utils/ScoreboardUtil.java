@@ -42,7 +42,6 @@ public class ScoreboardUtil {
     }
 
     public ScoreboardUtil() {
-
     }
 
     public ScoreboardUtil(ScoreboardCreationStrategyImpl creationStrategy) {
@@ -251,7 +250,6 @@ public class ScoreboardUtil {
 
 
     public static void changeTeamOptions(Team team) {
-
         team.setOption(Team.Option.COLLISION_RULE, Team.OptionStatus.NEVER);
         team.setOption(Team.Option.NAME_TAG_VISIBILITY, Team.OptionStatus.ALWAYS);
         team.setAllowFriendlyFire(false);

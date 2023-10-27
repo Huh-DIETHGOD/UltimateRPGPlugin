@@ -1,7 +1,7 @@
 package Ultimate.huh.core.commands;
 
 import Ultimate.huh.core.UltimateRPGPlugin;
-import Ultimate.huh.core.commands.impl.URPGCommands;
+import Ultimate.huh.core.commands.impl.URPGCommandsFactory;
 import Ultimate.huh.core.utils.MsgUtil;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
@@ -11,7 +11,7 @@ import org.jetbrains.annotations.Unmodifiable;
 
 import java.util.List;
 
-public class CommandInfo extends URPGCommands {
+public class CommandInfo extends URPGCommandsFactory {
     public CommandInfo() {
         super("info", new String[0]);
     }

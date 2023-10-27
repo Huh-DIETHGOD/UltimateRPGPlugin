@@ -1,9 +1,10 @@
 package Ultimate.huh.core;
 
-import Ultimate.huh.core.MySQL.DataTable;
 import Ultimate.huh.core.commands.impl.URPGCommandsRouter;
 import Ultimate.huh.core.events.EventsManager;
 import Ultimate.huh.core.metrics.Metrics;
+import Ultimate.huh.core.scheduling.Scheduler;
+import Ultimate.huh.core.utils.UpdateCheckerUtil;
 import cc.carm.lib.easysql.EasySQL;
 import cc.carm.lib.easysql.api.SQLManager;
 import cc.carm.lib.easysql.api.enums.NumberType;
@@ -12,8 +13,8 @@ import net.milkbowl.vault.chat.Chat;
 import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.permission.Permission;
 import org.apache.commons.lang.StringUtils;
+import org.apache.maven.artifact.versioning.DefaultArtifactVersion;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.HandlerList;
@@ -28,17 +29,41 @@ import java.util.logging.Logger;
 public final class UltimateRPGPlugin extends JavaPlugin {
     private static UltimateRPGPlugin instance;
     private SQLManager sqlManager;
+    private Scheduler scheduler;
     private final EventsManager eventsManager = new EventsManager();
     private static Economy econ = null;
     private static Permission perms = null;
     private static Chat chat = null;
     private final XConomyAPI XAPI = new XConomyAPI();
-    public UltimateRPGPlugin(){}
+    private final int resourceId;
+    private boolean outdated;
+
+    public UltimateRPGPlugin(int resourceId){
+        this.resourceId = resourceId;
+    }
 
     @Override
     public void onEnable() {
         super.onEnable();
-        Logger logger = getLogger();
+
+        // 自检插件版本
+        if (this.getResourceId() != 0) {
+            (new UpdateCheckerUtil(this)).getVersion((version) -> {
+                        DefaultArtifactVersion currentVersion = new DefaultArtifactVersion(this.getDescription().getVersion());
+                        DefaultArtifactVersion mostRecentVersion = new DefaultArtifactVersion(version);
+                        if (currentVersion.compareTo(mostRecentVersion) <= 0 && !currentVersion.equals(mostRecentVersion)) {
+                            this.outdated = true;
+                            this.getScheduler().runTimer(() -> {
+                                Logger Logger = this.getLogger();
+                                String PluginName = this.getName();
+                                Logger.info("&c " + PluginName + " is out of date! (Version " +
+                                        this.getDescription().getVersion() + ")");
+                                this.getLogger().info("&cThe newest version is &f" + version);
+                                this.getLogger().info("&cPlease download the new version!");
+                            }, 0L, 864000L);
+                        }
+                    });
+        }
 
         // bStatus plugin
         int pluginId = 19633;
@@ -61,7 +86,8 @@ public final class UltimateRPGPlugin extends JavaPlugin {
         getLogger().info("XConomy successfully enabled!");
 
         // Load plugin
-        logger.info("Loading UltimateRPG plugin");
+        getLogger().info("Loading UltimateRPG plugin");
+
         // Integration registration
         this.setupCommand();
         this.setupEvents();
@@ -72,7 +98,6 @@ public final class UltimateRPGPlugin extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
         super.onDisable();
 
         Bukkit.getScheduler().cancelTasks(this);
@@ -98,6 +123,9 @@ public final class UltimateRPGPlugin extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(this.getEventsManager(), this);
     }
 
+    /**
+     * 链接SQL数据库
+     */
     public void setupSQLManager() {
         this.saveDefaultConfig();
         this.reloadConfig();
@@ -130,8 +158,12 @@ public final class UltimateRPGPlugin extends JavaPlugin {
             getLogger().warning("[UltimateRPGPlugin] " + e);
             Bukkit.getPluginManager().disablePlugin(this);
         }
+
     }
 
+    /**
+     * 创建SQL数据库
+     */
     private void setupSQL() {
         try {
             sqlManager.getConnection();
@@ -187,6 +219,19 @@ public final class UltimateRPGPlugin extends JavaPlugin {
 
     public EventsManager getEventsManager() {
         return this.eventsManager;
+    }
+
+
+    public Scheduler getScheduler() {
+        return scheduler;
+    }
+
+    public int getResourceId() {
+        return this.resourceId;
+    }
+
+    public boolean isOutdated() {
+        return outdated;
     }
 
     public static Economy getEconomy() {

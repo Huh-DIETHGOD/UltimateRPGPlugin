@@ -1,7 +1,7 @@
 package Ultimate.huh.core.commands;
 
 import Ultimate.huh.core.UltimateRPGPlugin;
-import Ultimate.huh.core.commands.impl.URPGCommands;
+import Ultimate.huh.core.commands.impl.URPGCommandsFactory;
 import cc.carm.lib.easysql.api.SQLManager;
 import cc.carm.lib.easysql.api.action.query.QueryAction;
 import org.bukkit.Bukkit;
@@ -17,7 +17,7 @@ import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 
-public class CommandEasy_SQL extends URPGCommands {
+public class CommandEasy_SQL extends URPGCommandsFactory {
 
     public CommandEasy_SQL() {
         super("sql" , new String[0]);

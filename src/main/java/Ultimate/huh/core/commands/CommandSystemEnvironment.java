@@ -1,7 +1,7 @@
 package Ultimate.huh.core.commands;
 
 import Ultimate.huh.core.UltimateRPGPlugin;
-import Ultimate.huh.core.commands.impl.URPGCommands;
+import Ultimate.huh.core.commands.impl.URPGCommandsFactory;
 import Ultimate.huh.core.utils.MsgUtil;
 import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
@@ -10,7 +10,7 @@ import org.jetbrains.annotations.Unmodifiable;
 import java.util.List;
 import java.util.Properties;
 
-public class CommandSystemEnvironment extends URPGCommands {
+public class CommandSystemEnvironment extends URPGCommandsFactory {
     public CommandSystemEnvironment() {
         super("system", new String[0]);
     }

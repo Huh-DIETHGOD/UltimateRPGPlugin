@@ -1,7 +1,7 @@
 package Ultimate.huh.core.commands;
 
 import Ultimate.huh.core.UltimateRPGPlugin;
-import Ultimate.huh.core.commands.impl.URPGCommands;
+import Ultimate.huh.core.commands.impl.URPGCommandsFactory;
 import Ultimate.huh.core.gui.GUIInventory;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -17,7 +17,7 @@ import org.jetbrains.annotations.Unmodifiable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CommandGUI extends URPGCommands {
+public class CommandGUI extends URPGCommandsFactory {
     public CommandGUI() {
         super("gui", new String[0]);
     }

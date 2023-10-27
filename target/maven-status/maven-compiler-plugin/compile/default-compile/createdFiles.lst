@@ -51,5 +51,6 @@ Ultimate\huh\core\commands\CommandAnnouncement.class
 Ultimate\huh\core\utils\MsgUtil.class
 Ultimate\huh\core\metrics\Metrics$MetricsBase.class
 Ultimate\huh\core\scoreboard\ScoreboardCreation.class
+Ultimate\huh\core\manufacotry\URPGFactory.class
 Ultimate\huh\core\metrics\Metrics$CustomChart.class
 Ultimate\huh\core\listeners\onPlayerMoveBeforeLoginListener.class
