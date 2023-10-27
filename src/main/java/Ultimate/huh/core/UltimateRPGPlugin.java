@@ -49,20 +49,20 @@ public final class UltimateRPGPlugin extends JavaPlugin {
         // 自检插件版本
         if (this.getResourceId() != 0) {
             (new UpdateCheckerUtil(this)).getVersion((version) -> {
-                        DefaultArtifactVersion currentVersion = new DefaultArtifactVersion(this.getDescription().getVersion());
-                        DefaultArtifactVersion mostRecentVersion = new DefaultArtifactVersion(version);
-                        if (currentVersion.compareTo(mostRecentVersion) <= 0 && !currentVersion.equals(mostRecentVersion)) {
-                            this.outdated = true;
-                            this.getScheduler().runTimer(() -> {
-                                Logger Logger = this.getLogger();
-                                String PluginName = this.getName();
-                                Logger.info("&c " + PluginName + " is out of date! (Version " +
-                                        this.getDescription().getVersion() + ")");
-                                this.getLogger().info("&cThe newest version is &f" + version);
-                                this.getLogger().info("&cPlease download the new version!");
-                            }, 0L, 864000L);
-                        }
-                    });
+                DefaultArtifactVersion currentVersion = new DefaultArtifactVersion(this.getDescription().getVersion());
+                DefaultArtifactVersion mostRecentVersion = new DefaultArtifactVersion(version);
+                if (currentVersion.compareTo(mostRecentVersion) <= 0 && !currentVersion.equals(mostRecentVersion)) {
+                    this.outdated = true;
+                    this.getScheduler().runTimer(() -> {
+                        Logger Logger = this.getLogger();
+                        String PluginName = this.getName();
+                        Logger.info("&c " + PluginName + " is out of date! (Version " +
+                                this.getDescription().getVersion() + ")");
+                        this.getLogger().info("&cThe newest version is &f" + version);
+                        this.getLogger().info("&cPlease download the new version!");
+                        }, 0L, 864000L);
+                }
+            });
         }
 
         // bStatus plugin
