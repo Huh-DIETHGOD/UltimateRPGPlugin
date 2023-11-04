@@ -5,5 +5,4 @@ import org.bukkit.metadata.MetadataValue;
 
 public interface URPGFactory {
     NamespacedKey createNamespacedKey(String namespacedKey);
-
 }

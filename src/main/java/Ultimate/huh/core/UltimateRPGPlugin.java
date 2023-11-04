@@ -54,12 +54,10 @@ public final class UltimateRPGPlugin extends JavaPlugin {
                 if (currentVersion.compareTo(mostRecentVersion) <= 0 && !currentVersion.equals(mostRecentVersion)) {
                     this.outdated = true;
                     this.getScheduler().runTimer(() -> {
-                        Logger Logger = this.getLogger();
-                        String PluginName = this.getName();
-                        Logger.info("&c " + PluginName + " is out of date! (Version " +
-                                this.getDescription().getVersion() + ")");
-                        this.getLogger().info("&cThe newest version is &f" + version);
-                        this.getLogger().info("&cPlease download the new version!");
+                        String pluginName = instance.getDescription().getName();
+                        getLogger().info(pluginName + " is out of date! (Version " + this.getDescription().getVersion() + ")");
+                        getLogger().info("&cThe newest version is &f" + version);
+                        getLogger().info("&cPlease download the new version!");
                         }, 0L, 864000L);
                 }
             });
@@ -136,8 +134,8 @@ public final class UltimateRPGPlugin extends JavaPlugin {
         String password = config.getString("Ultimate.datasource.password");
 
         if (StringUtils.isBlank(driver) || StringUtils.isBlank(url) || StringUtils.isBlank(username) || StringUtils.isBlank(password)) {
-            this.getLogger().severe("[UltimateRPGPlugin] Config can not be null! please check!");
-            this.getLogger().severe("[UltimateRPGPlugin] The plugin will be disabled!");
+            getLogger().severe("[UltimateRPGPlugin] Config can not be null! please check!");
+            getLogger().severe("[UltimateRPGPlugin] The plugin will be disabled!");
             return;
         }
 
