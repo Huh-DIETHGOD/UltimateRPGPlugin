@@ -8,6 +8,7 @@ import Ultimate.huh.core.utils.UpdateCheckerUtil;
 import cc.carm.lib.easysql.EasySQL;
 import cc.carm.lib.easysql.api.SQLManager;
 import cc.carm.lib.easysql.api.enums.NumberType;
+import cc.carm.lib.easysql.hikari.HikariConfig;
 import me.yic.xconomy.api.XConomyAPI;
 import net.milkbowl.vault.chat.Chat;
 import net.milkbowl.vault.economy.Economy;
@@ -152,9 +153,7 @@ public final class UltimateRPGPlugin extends JavaPlugin {
                 Bukkit.getPluginManager().disablePlugin(this);
             }
         } catch (SQLException e) {
-            getLogger().severe("[UltimateRPGPlugin] SQL Connection Failed! Please check the config file!");
             getLogger().warning("[UltimateRPGPlugin] " + e);
-            Bukkit.getPluginManager().disablePlugin(this);
         }
 
     }
@@ -163,18 +162,10 @@ public final class UltimateRPGPlugin extends JavaPlugin {
      * 创建SQL数据库
      */
     private void setupSQL() {
-        try {
-            sqlManager.getConnection();
-            sqlManager.createTable("URPGTable")
-                    .addAutoIncrementColumn("id", NumberType.INT, true, true)
-                    .addColumn("playerName", "VARCHAR(64)")
-                    .addColumn("uuid", "VARCHAR(64)")
-                    .addColumn("value", "INT(128)")
-                    .build().execute(null);
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+       try{
+       } catch(RuntimeException e){
+           getLogger().info("[UltimateRPG]" + e.getMessage());
+       }
     }
 
     private boolean setupEconomy() {
