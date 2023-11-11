@@ -163,11 +163,17 @@ public final class UltimateRPGPlugin extends JavaPlugin {
      * 创建SQL数据库
      */
     private void setupSQLTable() {
-       try{
-           URPGTable.initialize(sqlManager, "URPGTable");
-       } catch(RuntimeException e){
-           e.printStackTrace();
-       }
+        FileConfiguration config = this.getConfig();
+        Boolean firstSetUp = config.getBoolean("Ultimate.firstTimeLoad");
+        if (firstSetUp.equals(true)) {
+            try{
+                URPGTable.initialize(sqlManager, "URPGTable");
+            } catch(RuntimeException e){
+                e.printStackTrace();
+            }
+            config.set("Ultimate.firstTimeLoad", false);
+            this.saveConfig();
+        }
     }
 
     private boolean setupEconomy() {
