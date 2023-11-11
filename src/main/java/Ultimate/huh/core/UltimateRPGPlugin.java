@@ -1,5 +1,6 @@
 package Ultimate.huh.core;
 
+import Ultimate.huh.core.MySQL.URPGTable;
 import Ultimate.huh.core.commands.impl.URPGCommandsRouter;
 import Ultimate.huh.core.events.EventsManager;
 import Ultimate.huh.core.metrics.Metrics;
@@ -91,8 +92,7 @@ public final class UltimateRPGPlugin extends JavaPlugin {
         this.setupCommand();
         this.setupEvents();
         this.setupSQLManager();
-        this.setupSQL();
-
+        this.setupSQLTable();
     }
 
     @Override
@@ -105,6 +105,7 @@ public final class UltimateRPGPlugin extends JavaPlugin {
         if (Objects.nonNull(sqlManager)) {
             EasySQL.shutdownManager(sqlManager);
         }
+
         instance = null;
         getLogger().info(String.format("Disabled Version %s", getDescription().getName(), getDescription().getVersion()));
     }
@@ -161,10 +162,11 @@ public final class UltimateRPGPlugin extends JavaPlugin {
     /**
      * 创建SQL数据库
      */
-    private void setupSQL() {
+    private void setupSQLTable() {
        try{
+           URPGTable.initialize(sqlManager, "URPGTable");
        } catch(RuntimeException e){
-           getLogger().info("[UltimateRPG]" + e.getMessage());
+           e.printStackTrace();
        }
     }
 
@@ -173,10 +175,12 @@ public final class UltimateRPGPlugin extends JavaPlugin {
             getLogger().info("finding vault error");
             return false;
         }
+
         RegisteredServiceProvider<Economy> rsp = getServer().getServicesManager().getRegistration(Economy.class);
         if (rsp == null) {
             return false;
         }
+
         econ = rsp.getProvider();
         return econ != null;
     }
