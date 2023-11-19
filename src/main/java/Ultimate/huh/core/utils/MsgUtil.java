@@ -11,11 +11,13 @@ import java.util.logging.Level;
 import java.util.stream.Collectors;
 
 public class MsgUtil {
+    private static UltimateRPGPlugin instance;
+
     public MsgUtil() {
     }
 
     public static void log(Level level, String msg, Object... args) {
-        UltimateRPGPlugin.getInstance().getLogger().log(level, String.format(msg, args));
+        instance.getLogger().log(level, String.format(msg, args));
     }
 
     public static void info(String msg, Object... args) {
@@ -27,7 +29,7 @@ public class MsgUtil {
     }
 
     public static void warn(String msg, Throwable throwable, Object... args) {
-        UltimateRPGPlugin.getInstance().getLogger().log(Level.WARNING, String.format(msg, args), throwable);
+        instance.getLogger().log(Level.WARNING, String.format(msg, args), throwable);
     }
 
     public static void severe(String msg, Object... args) {
@@ -35,7 +37,7 @@ public class MsgUtil {
     }
 
     public static void severe(String msg, Throwable throwable, Object... args) {
-        UltimateRPGPlugin.getInstance().getLogger().log(Level.SEVERE, String.format(msg, args), throwable);
+        instance.getLogger().log(Level.SEVERE, String.format(msg, args), throwable);
     }
 
     public static void msg(@NotNull CommandSender sender, String... messages) {

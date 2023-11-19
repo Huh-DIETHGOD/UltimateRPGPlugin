@@ -8,8 +8,6 @@ import Ultimate.huh.core.scheduling.Scheduler;
 import Ultimate.huh.core.utils.UpdateCheckerUtil;
 import cc.carm.lib.easysql.EasySQL;
 import cc.carm.lib.easysql.api.SQLManager;
-import cc.carm.lib.easysql.api.enums.NumberType;
-import cc.carm.lib.easysql.hikari.HikariConfig;
 import me.yic.xconomy.api.XConomyAPI;
 import net.milkbowl.vault.chat.Chat;
 import net.milkbowl.vault.economy.Economy;
@@ -25,7 +23,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.sql.SQLException;
 import java.util.Objects;
-import java.util.logging.Logger;
 
 
 public final class UltimateRPGPlugin extends JavaPlugin {
@@ -37,16 +34,17 @@ public final class UltimateRPGPlugin extends JavaPlugin {
     private static Permission perms = null;
     private static Chat chat = null;
     private final XConomyAPI XAPI = new XConomyAPI();
-    private final int resourceId;
+    private int resourceId;
     private boolean outdated;
 
-    public UltimateRPGPlugin(int resourceId){
-        this.resourceId = resourceId;
+    public UltimateRPGPlugin(){
     }
 
     @Override
     public void onEnable() {
         super.onEnable();
+        saveConfig();
+        reloadConfig();
 
         // 自检插件版本
         if (this.getResourceId() != 0) {
@@ -76,8 +74,8 @@ public final class UltimateRPGPlugin extends JavaPlugin {
             getServer().getPluginManager().disablePlugin(this);
             return;
         }
-        setupPermissions();
-        setupChat();
+        this.setupPermissions();
+        this.setupChat();
 
         // XConomy plugin
         XAPI.getversion();
@@ -192,23 +190,43 @@ public final class UltimateRPGPlugin extends JavaPlugin {
     }
 
     private boolean setupChat() {
-        RegisteredServiceProvider<Chat> rsp = getServer().getServicesManager().getRegistration(Chat.class);
-        //chat = rsp.getProvider(); //NullPointerException
+        if (getServer().getPluginManager().getPlugin("Vault") == null){
+            getLogger().info("finding vault error");
+            return false;
+        }
+
+        RegisteredServiceProvider<net.milkbowl.vault.chat.Chat> rsp = getServer().getServicesManager().getRegistration(net.milkbowl.vault.chat.Chat.class);
+        if (rsp == null) {
+            return false;
+        }
+
+        chat = rsp.getProvider();
         return chat != null;
     }
 
     private boolean setupPermissions() {
-        RegisteredServiceProvider<Permission> rsp = getServer().getServicesManager().getRegistration(Permission.class);
-        //perms = rsp.getProvider(); //NullPointerException
+        if (getServer().getPluginManager().getPlugin("Vault") == null){
+            getLogger().info("finding vault error");
+            return false;
+        }
+
+        RegisteredServiceProvider<net.milkbowl.vault.permission.Permission> rsp = getServer().getServicesManager().getRegistration(net.milkbowl.vault.permission.Permission.class);
+        if (rsp == null) {
+            return false;
+        }
+
+        perms = rsp.getProvider();
         return perms != null;
     }
 
-    public final void afterLoad() {
-        getLogger().info("Plugin loaded!");
+    public final void onLoad() {
+        super.onLoad();
+        getLogger().info("Plugin loading...");
     }
 
-    public final void onLoad() {
-        getLogger().info("Plugin loading...");
+    @Deprecated
+    public final void afterLoad() {
+        getLogger().info("Plugin loaded!");
     }
 
 
