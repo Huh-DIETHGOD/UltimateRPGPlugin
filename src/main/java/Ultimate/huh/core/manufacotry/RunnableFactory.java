@@ -5,6 +5,5 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Consumer;
 
-public interface RunnableFactory {
-    RunnableTask create(@NotNull Consumer<RunnableTask> var1);
+public abstract class RunnableFactory {
 }

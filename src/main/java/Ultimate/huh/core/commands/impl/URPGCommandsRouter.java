@@ -2,6 +2,7 @@ package Ultimate.huh.core.commands.impl;
 
 import Ultimate.huh.core.UltimateRPGPlugin;
 import Ultimate.huh.core.commands.*;
+import Ultimate.huh.core.manufacotry.URPGCommandsFactory;
 import Ultimate.huh.core.utils.MsgUtil;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
@@ -80,6 +81,7 @@ public class URPGCommandsRouter implements CommandExecutor, TabCompleter {
         } else {
             Stream<String> targets = URPGCommandsFactory.filterByPermission(sender, this.commands.values().stream()).map(URPGCommandsFactory::getLabels).flatMap(Collection::stream);
             URPGCommandsFactory.suggestByParameter(targets, suggestions, args.length == 0 ? null : args[0]);
+
             return suggestions;
         }
     }

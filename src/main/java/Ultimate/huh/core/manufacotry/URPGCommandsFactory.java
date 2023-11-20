@@ -1,4 +1,4 @@
-package Ultimate.huh.core.commands.impl;
+package Ultimate.huh.core.manufacotry;
 
 import Ultimate.huh.core.UltimateRPGPlugin;
 import com.google.common.collect.ImmutableSet;
