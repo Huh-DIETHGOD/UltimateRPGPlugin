@@ -11,6 +11,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Unmodifiable;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Objects;
@@ -225,6 +226,14 @@ public class CommandEasy_SQL extends URPGCommandsFactory {
     }
 
     public void complete(@NotNull UltimateRPGPlugin plugin, @NotNull CommandSender sender, @NotNull String alias, @NotNull @Unmodifiable List<String> params, @NotNull List<String> suggestions) {
+        suggestions = new ArrayList();
+        suggestions.add("insert");
+        suggestions.add("query");
+        suggestions.add("update");
+        suggestions.add("delete");
+        suggestions.add("replace");
+
+
     }
 
 }

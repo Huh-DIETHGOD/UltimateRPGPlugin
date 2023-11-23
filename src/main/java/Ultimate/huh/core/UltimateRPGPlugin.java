@@ -59,6 +59,10 @@ public final class UltimateRPGPlugin extends JavaPlugin {
             isSpigot = false;
         }
         environment = new Ultimate.huh.core.expansion.Environment(ServerVersion, isSpigot);
+        if (environment.matchEnv() == false){
+            getLogger().info("UltimateRPG Plugin is in a wrong environment");
+            getServer().getPluginManager().disablePlugin(this);
+        }
 
         // 检查插件版本
         if (this.getResourceId() != 0) {
