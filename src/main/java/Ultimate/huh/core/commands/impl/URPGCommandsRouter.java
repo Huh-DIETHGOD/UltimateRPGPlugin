@@ -2,7 +2,6 @@ package Ultimate.huh.core.commands.impl;
 
 import Ultimate.huh.core.UltimateRPGPlugin;
 import Ultimate.huh.core.commands.*;
-import Ultimate.huh.core.manufacotry.URPGCommandsFactory;
 import Ultimate.huh.core.utils.MsgUtil;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
@@ -71,6 +70,7 @@ public class URPGCommandsRouter implements CommandExecutor, TabCompleter {
 
     public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String alias, @NotNull String[] args) {
         List<String> suggestions = new ArrayList();
+
         if (args.length > 1) {
             URPGCommandsFactory target = (URPGCommandsFactory)this.commands.get(args[0].toLowerCase(Locale.ROOT));
             if (target != null) {

@@ -1,7 +1,7 @@
 package Ultimate.huh.core.commands;
 
 import Ultimate.huh.core.UltimateRPGPlugin;
-import Ultimate.huh.core.manufacotry.URPGCommandsFactory;
+import Ultimate.huh.core.commands.impl.URPGCommandsFactory;
 import Ultimate.huh.core.holders.StorageHolder;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;

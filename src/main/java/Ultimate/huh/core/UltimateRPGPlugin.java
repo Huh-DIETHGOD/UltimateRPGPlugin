@@ -3,6 +3,7 @@ package Ultimate.huh.core;
 import Ultimate.huh.core.MySQL.URPGTable;
 import Ultimate.huh.core.commands.impl.URPGCommandsRouter;
 import Ultimate.huh.core.events.EventsManager;
+import Ultimate.huh.core.expansion.Environment;
 import Ultimate.huh.core.metrics.Metrics;
 import Ultimate.huh.core.scheduling.Scheduler;
 import Ultimate.huh.core.utils.UpdateCheckerUtil;
@@ -20,12 +21,14 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
 
 import java.sql.SQLException;
 import java.util.Objects;
 
 
 public final class UltimateRPGPlugin extends JavaPlugin {
+    private static @NotNull Environment environment;
     private static UltimateRPGPlugin instance;
     private SQLManager sqlManager;
     private Scheduler scheduler;
@@ -46,7 +49,18 @@ public final class UltimateRPGPlugin extends JavaPlugin {
         saveConfig();
         reloadConfig();
 
-        // 自检插件版本
+        // 检查服务器环境
+        String ServerVersion = Bukkit.getServer().getClass().getPackage().getName().split("\\.")[3];
+        boolean isSpigot;
+        try {
+            Class.forName("org.spigotmc.SpigotConfig");
+            isSpigot = true;
+        } catch (ClassNotFoundException | ExceptionInInitializerError var3) {
+            isSpigot = false;
+        }
+        environment = new Ultimate.huh.core.expansion.Environment(ServerVersion, isSpigot);
+
+        // 检查插件版本
         if (this.getResourceId() != 0) {
             (new UpdateCheckerUtil(this)).getVersion((version) -> {
                 DefaultArtifactVersion currentVersion = new DefaultArtifactVersion(this.getDescription().getVersion());
@@ -63,12 +77,12 @@ public final class UltimateRPGPlugin extends JavaPlugin {
             });
         }
 
-        // bStatus plugin
+        // bStatus
         int pluginId = 19633;
         Metrics metrics = new Metrics(this, pluginId);
         metrics.addCustomChart(new Metrics.SimplePie("chart_id", () -> "My value"));
 
-        // Vault plugin
+        // Vault
         if (!setupEconomy() ) {
             getLogger().severe(String.format("- Disabled due to no Vault dependency found!", getDescription().getName()));
             getServer().getPluginManager().disablePlugin(this);
@@ -77,13 +91,13 @@ public final class UltimateRPGPlugin extends JavaPlugin {
         this.setupPermissions();
         this.setupChat();
 
-        // XConomy plugin
+        // XConomy
         XAPI.getversion();
         XAPI.getSyncChannalType();
         instance = this;
         getLogger().info("XConomy successfully enabled!");
 
-        // Load plugin
+        // Load
         getLogger().info("Loading UltimateRPG plugin");
 
         // Integration registration

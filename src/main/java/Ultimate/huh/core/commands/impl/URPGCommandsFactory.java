@@ -1,4 +1,4 @@
-package Ultimate.huh.core.manufacotry;
+package Ultimate.huh.core.commands.impl;
 
 import Ultimate.huh.core.UltimateRPGPlugin;
 import com.google.common.collect.ImmutableSet;
@@ -18,12 +18,14 @@ public abstract class URPGCommandsFactory {
     private final @NotNull Set<String> alias;
     private @Nullable String permission;
 
+    // 构造函数
     protected URPGCommandsFactory(@NotNull String label, String... alias) {
         this.label = label;
         this.alias = Sets.newHashSet(alias);
         this.setPermission("urpg." + label);
     }
 
+    //
     public static @NotNull Stream<URPGCommandsFactory> filterByPermission(@NotNull CommandSender sender, @NotNull Stream<URPGCommandsFactory> commands) {
         return commands.filter((target) -> {
             return target.getPermission() == null || sender.hasPermission(target.getPermission());

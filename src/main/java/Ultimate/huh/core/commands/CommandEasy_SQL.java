@@ -1,7 +1,7 @@
 package Ultimate.huh.core.commands;
 
 import Ultimate.huh.core.UltimateRPGPlugin;
-import Ultimate.huh.core.manufacotry.URPGCommandsFactory;
+import Ultimate.huh.core.commands.impl.URPGCommandsFactory;
 import cc.carm.lib.easysql.api.SQLManager;
 import cc.carm.lib.easysql.api.action.query.QueryAction;
 import org.bukkit.Bukkit;
@@ -31,29 +31,27 @@ public class CommandEasy_SQL extends URPGCommandsFactory {
         boolean flag = false;
         String[] args = params.toArray(new String[params.size()]);
 
-        if (params.size() >= 0) {
-            switch (params.get(0)) {
-                case "query":
-                    // /urpg sql query <playerName> <colum>
-                    flag = executeQuery(sender, args);
-                    break;
-                case "insert":
-                    // /urpg sql insert <playerName> <selection> <newData>
-                    flag = executeInsert(sender, args);
-                    break;
-                case "update":
-                    // /urpg sql update <playerName> <selection> <newData>
-                    flag = executeUpdate(sender, args);
-                    break;
-                case "delete":
-                    // /urpg sql delete <playerName> <selection>
-                    flag = executeDelete(sender, args);
-                    break;
-                case "replace":
-                    // /urpg sql replace <playerName> <selection> <newData>
-                    flag = executeReplace(sender, args);
-                    break;
-            }
+        switch (params.get(0)) {
+            case "query":
+                // /urpg sql query <playerName> <colum>
+                flag = executeQuery(sender, args);
+                break;
+            case "insert":
+                // /urpg sql insert <playerName> <selection> <newData>
+                flag = executeInsert(sender, args);
+                break;
+            case "update":
+                // /urpg sql update <playerName> <selection> <newData>
+                flag = executeUpdate(sender, args);
+                break;
+            case "delete":
+                // /urpg sql delete <playerName> <selection>
+                flag = executeDelete(sender, args);
+                break;
+            case "replace":
+                // /urpg sql replace <playerName> <selection> <newData>
+                flag = executeReplace(sender, args);
+                break;
         }
     }
 
@@ -74,7 +72,6 @@ public class CommandEasy_SQL extends URPGCommandsFactory {
                     .build();
 
             /**
-             * 函数式编程
              * 这里是个Async回调函数，此时EasySql会将任务提交到自己的线程池里，
              * 接着主动开启链接、执行Sql语句，关闭连接，
              * 并返回一个包装了ResultSet结果等信息的实参，也就是这里的successQuery。
@@ -100,7 +97,7 @@ public class CommandEasy_SQL extends URPGCommandsFactory {
                 sender.sendMessage("EasySql创建的线程：" + Thread.currentThread().getName());
 
                 /**
-                 * Bukkit.getScheduler.runTask(plugin, task)
+                 * Bukkit.getScheduler.runTask(plugin, task);
                  * 可以让代码回到服务端的主线程运行，对于需要调用Spigot/Bukkit API的场景，
                  * 请尽量回到主线程后在调用。
                  */
@@ -225,6 +222,9 @@ public class CommandEasy_SQL extends URPGCommandsFactory {
 
     public Logger getLogger() {
         return logger;
+    }
+
+    public void complete(@NotNull UltimateRPGPlugin plugin, @NotNull CommandSender sender, @NotNull String alias, @NotNull @Unmodifiable List<String> params, @NotNull List<String> suggestions) {
     }
 
 }
