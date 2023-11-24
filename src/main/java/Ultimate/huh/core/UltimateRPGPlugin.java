@@ -55,7 +55,7 @@ public final class UltimateRPGPlugin extends JavaPlugin {
         try {
             Class.forName("org.spigotmc.SpigotConfig");
             isSpigot = true;
-        } catch (ClassNotFoundException | ExceptionInInitializerError var3) {
+        } catch (ClassNotFoundException | ExceptionInInitializerError e) {
             isSpigot = false;
         }
         environment = new Ultimate.huh.core.expansion.Environment(ServerVersion, isSpigot);
@@ -99,7 +99,6 @@ public final class UltimateRPGPlugin extends JavaPlugin {
         XAPI.getversion();
         XAPI.getSyncChannalType();
         instance = this;
-        getLogger().info("XConomy successfully enabled!");
 
         // Load
         getLogger().info("Loading UltimateRPG plugin");
@@ -152,10 +151,12 @@ public final class UltimateRPGPlugin extends JavaPlugin {
         String password = config.getString("Ultimate.datasource.password");
 
         if (StringUtils.isBlank(driver) || StringUtils.isBlank(url) || StringUtils.isBlank(username) || StringUtils.isBlank(password)) {
-            getLogger().severe("[UltimateRPGPlugin] Config can not be null! please check!");
-            getLogger().severe("[UltimateRPGPlugin] The plugin will be disabled!");
+            getLogger().info("Config can not be null! please check!");
+            getLogger().info("The plugin will be disabled!");
             return;
         }
+
+        getLogger().info("trying to create sqlManager");
 
         try {
             sqlManager = EasySQL.createManager(driver, url, username, password);

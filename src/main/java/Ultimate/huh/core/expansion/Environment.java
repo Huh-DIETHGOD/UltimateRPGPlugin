@@ -10,22 +10,10 @@ public final class Environment {
     }
 
     public boolean matchEnv() {
-        if (getVersionMatch() == false | getVersionMatch() == (false)) {
+        if (version == "v1_16_R3" || isSpigot == false) {
             return false;
         } else {
             return true;
         }
-    }
-
-    public String getVersion() {
-        return this.version == null ? "unknown" : this.version;
-    }
-
-    public Boolean getVersionMatch() {
-        return this.getVersion() == "1.16.5" ? true : false;
-    }
-
-    public boolean isSpigot() {
-        return this.isSpigot;
     }
 }

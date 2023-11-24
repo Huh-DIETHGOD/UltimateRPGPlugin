@@ -1,7 +1,7 @@
 name: UltimateRPGPlugin
 version: '0.0.1 ALPHA'
 main: Ultimate.huh.core.UltimateRPGPlugin
-api-version: '1.16'
+api-version: '1.20'
 log: true
 
 author: "Huh_DIETHGOD"
