@@ -168,7 +168,7 @@ public final class UltimateRPGPlugin extends JavaPlugin {
         try {
             if (!sqlManager.getConnection().isValid(5)) {
                 getLogger().severe("[UltimateRPGPlugin] SQL Connection timed out!");
-                Bukkit.getPluginManager().disablePlugin(this);
+                getServer().getPluginManager().disablePlugin(this);
             }
         } catch (SQLException e) {
             getLogger().warning("[UltimateRPGPlugin] " + e);

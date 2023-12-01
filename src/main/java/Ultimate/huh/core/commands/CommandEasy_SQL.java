@@ -57,7 +57,6 @@ public class CommandEasy_SQL extends URPGCommandsFactory {
     }
 
     private boolean executeQuery(CommandSender sender, String[] args) {
-
         if (args.length >= 2) {
             sender.sendMessage("current thread: " + Thread.currentThread().getName());
             //得到查询构建器
@@ -76,7 +75,7 @@ public class CommandEasy_SQL extends URPGCommandsFactory {
              * 这里是个Async回调函数，此时EasySql会将任务提交到自己的线程池里，
              * 接着主动开启链接、执行Sql语句，关闭连接，
              * 并返回一个包装了ResultSet结果等信息的实参，也就是这里的successQuery。
-             * 由于我们调用的是Async异步方法，如果需要通过Spigot/Bukkit API对查询到的信息
+             * 由于调用的是Async异步方法，如果需要通过Spigot/Bukkit API对查询到的信息
              * 进行消费，则需要回到服务器的主线程。
              */
             //通过query对象执行里面的查询sql
@@ -90,7 +89,7 @@ public class CommandEasy_SQL extends URPGCommandsFactory {
                 //上面的查询结果只有一个，就直接这样写了
                 if (resultSet1.next()) {
                     concurrentHashMap.put("id", resultSet1.getInt("id"));
-                    concurrentHashMap.put("playerName", resultSet1.getString("name"));
+                    concurrentHashMap.put("playerName", resultSet1.getString("playerName"));
                     concurrentHashMap.put("uuid", resultSet1.getString("uuid"));
                     concurrentHashMap.put("value", resultSet1.getInt("value"));
                 }
