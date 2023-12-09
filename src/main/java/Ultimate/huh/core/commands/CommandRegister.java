@@ -5,7 +5,6 @@ import Ultimate.huh.core.commands.impl.URPGCommandsFactory;
 import cc.carm.lib.easysql.api.SQLManager;
 import cc.carm.lib.easysql.api.action.query.QueryAction;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Unmodifiable;
 
@@ -21,7 +20,6 @@ public class CommandRegister extends URPGCommandsFactory {
     private static UltimateRPGPlugin instance;
     private Logger logger;
 
-
     public void URPGCommand(@NotNull UltimateRPGPlugin plugin, @NotNull CommandSender sender, @NotNull String alias, @NotNull @Unmodifiable List<String> params) {
         QueryAction queryAction = sqlManager.createQuery()
                 .inTable("URPGTable")
@@ -31,10 +29,6 @@ public class CommandRegister extends URPGCommandsFactory {
                 .setPageLimit(1, 5)
                 .build();
         queryAction.executeAsync();
-
-
-
-
 
         String password = params.get(1);
         String verifyPassword = params.get(2);
