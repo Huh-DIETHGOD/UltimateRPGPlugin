@@ -28,6 +28,7 @@ public class CommandEasy_SQL extends URPGCommandsFactory {
     Logger logger;
     private static UltimateRPGPlugin instance;
 
+
     public void URPGCommand(@NotNull UltimateRPGPlugin plugin, @NotNull CommandSender sender, @NotNull String alias, @NotNull @Unmodifiable List<String> params) {
         boolean flag = false;
         String[] args = params.toArray(new String[params.size()]);
@@ -80,13 +81,12 @@ public class CommandEasy_SQL extends URPGCommandsFactory {
              */
             //通过query对象执行里面的查询sql
             queryAction.executeAsync(successQuery -> {
-
                 //获取resultSet
                 ResultSet resultSet1 = successQuery.getResultSet();
                 //保存resultSet到线程安全的数据结构中
                 ConcurrentHashMap<String, Object> concurrentHashMap = new ConcurrentHashMap<>();
 
-                //上面的查询结果只有一个，就直接这样写了
+                //上面的查询结果只有一个
                 if (resultSet1.next()) {
                     concurrentHashMap.put("id", resultSet1.getInt("id"));
                     concurrentHashMap.put("playerName", resultSet1.getString("playerName"));
@@ -95,7 +95,6 @@ public class CommandEasy_SQL extends URPGCommandsFactory {
                 }
 
                 sender.sendMessage("EasySql创建的线程：" + Thread.currentThread().getName());
-
                 /**
                  * Bukkit.getScheduler.runTask(plugin, task);
                  * 可以让代码回到服务端的主线程运行，对于需要调用Spigot/Bukkit API的场景，
@@ -154,7 +153,7 @@ public class CommandEasy_SQL extends URPGCommandsFactory {
                     //参数校验，不通过就直接捕获处理
                     Integer.parseInt(args[2]);
                 } catch (NumberFormatException e) {
-                    sender.sendMessage("金额必须是数字!");
+                    sender.sendMessage("This must be a number");
                     return true;
                 }
 
@@ -175,17 +174,17 @@ public class CommandEasy_SQL extends URPGCommandsFactory {
                         .build()                                        //需要build得到SQLAction再execute | executeAsync
                         .executeAsync((success) -> {
                             //操作成功回调
-                            sender.sendMessage("更新成功");
+                            sender.sendMessage("update successfully");
                         }, (exception, sqlAction) -> {
                             //操作失败回调
-                            getLogger().warning("数据库异常！");
-                            getLogger().warning("请求语句："  + sqlAction.getSQLContents());
+                            getLogger().warning("Database exception");
+                            getLogger().warning("Request statements:"  + sqlAction.getSQLContents());
                             getLogger().warning(exception.getMessage());
                         });
 
                 return true;
             }
-            sender.sendMessage("玩家不存在");
+            sender.sendMessage("player dose not exist");
             return true;
         }
         return false;
@@ -194,7 +193,7 @@ public class CommandEasy_SQL extends URPGCommandsFactory {
     private boolean executeDelete(CommandSender sender, String[] args) {
         if (args.length >= 2) {
             Player player = Bukkit.getPlayer(args[1]);
-            sender.sendMessage("正在搜寻玩家：" + args[1]);
+            sender.sendMessage("searching for the player" + args[1]);
             if (Objects.nonNull(player)) {
                 /**
                  * DELETE FROM player
@@ -205,10 +204,10 @@ public class CommandEasy_SQL extends URPGCommandsFactory {
                         .build()
                         .execute(null);       //同步执行，异常回调为null
 //                        .executeAsync();
-                sender.sendMessage("删除成功");
+                sender.sendMessage("delete successfully");
                 return true;
             }
-            sender.sendMessage("玩家不存在");
+            sender.sendMessage("player does not exist");
             return true;
         }
         return false;
