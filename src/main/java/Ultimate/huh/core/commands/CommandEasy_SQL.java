@@ -156,7 +156,6 @@ public class CommandEasy_SQL extends URPGCommandsFactory {
                     sender.sendMessage("This must be a number");
                     return true;
                 }
-
                 // key: 字段名， value: 值
                 LinkedHashMap<String, Object> infoMap = new LinkedHashMap<>();
                 infoMap.put("name", player.getName());
@@ -203,7 +202,7 @@ public class CommandEasy_SQL extends URPGCommandsFactory {
                         .setConditions("name = '" + args[1] + "'")
                         .build()
                         .execute(null);       //同步执行，异常回调为null
-//                        .executeAsync();
+//                      .executeAsync();
                 sender.sendMessage("delete successfully");
                 return true;
             }
@@ -214,8 +213,6 @@ public class CommandEasy_SQL extends URPGCommandsFactory {
     }
 
     private boolean executeReplace(CommandSender sender, String[] args) {
-
-
         return false;
     }
 
@@ -230,8 +227,6 @@ public class CommandEasy_SQL extends URPGCommandsFactory {
         suggestions.add("update");
         suggestions.add("delete");
         suggestions.add("replace");
-
-
     }
 
 }
