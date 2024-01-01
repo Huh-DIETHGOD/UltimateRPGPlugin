@@ -5,6 +5,12 @@ Ultimate:
     url: jdbc:mysql://localhost:3306/URPGDB
     username: root
     password: 1q2w3e4r
+  language:
+    # Options:
+    # English
+    # Chinese
+    language: English
+
 
   #DO NOT CHANGE THIS VALUE
   firstTimeLoad: true

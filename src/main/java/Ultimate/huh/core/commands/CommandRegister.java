@@ -18,7 +18,6 @@ public class CommandRegister extends URPGCommandsFactory {
 
     private SQLManager sqlManager;
     private static UltimateRPGPlugin instance;
-    private Logger logger;
 
     public void URPGCommand(@NotNull UltimateRPGPlugin plugin, @NotNull CommandSender sender, @NotNull String alias, @NotNull @Unmodifiable List<String> params) {
         QueryAction queryAction = sqlManager.createQuery()
@@ -38,12 +37,9 @@ public class CommandRegister extends URPGCommandsFactory {
                     .setParams(sender.getName(), params.get(1).toLowerCase())
                     .executeAsync();
         } else {
-            getLogger().info("你输入的密码不一致,请检查!");
+            sender.sendMessage("Password do not match, please check!");
         }
 
     }
 
-    public Logger getLogger() {
-        return logger;
-    }
 }
