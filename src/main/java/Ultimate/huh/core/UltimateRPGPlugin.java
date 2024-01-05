@@ -4,6 +4,7 @@ import Ultimate.huh.core.MySQL.URPGTable;
 import Ultimate.huh.core.commands.impl.URPGCommandsRouter;
 import Ultimate.huh.core.events.EventsManager;
 import Ultimate.huh.core.expansion.Environment;
+import Ultimate.huh.core.gui.LanguageSetting;
 import Ultimate.huh.core.metrics.Metrics;
 import Ultimate.huh.core.scheduling.Scheduler;
 import Ultimate.huh.core.utils.UpdateCheckerUtil;
@@ -32,6 +33,7 @@ public final class UltimateRPGPlugin extends JavaPlugin {
     private static UltimateRPGPlugin instance;
     private SQLManager sqlManager;
     private Scheduler scheduler;
+    private LanguageSetting languageSetting;
     private final EventsManager eventsManager = new EventsManager();
     private static Economy econ = null;
     private static Permission perms = null;
@@ -108,6 +110,9 @@ public final class UltimateRPGPlugin extends JavaPlugin {
         this.setupEvents();
         this.setupSQLManager();
         this.setupSQLTable();
+
+        // Others
+        languageSetting.setLanguage("English");
     }
 
     @Override

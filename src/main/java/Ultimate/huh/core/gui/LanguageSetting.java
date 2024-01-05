@@ -3,8 +3,11 @@ package Ultimate.huh.core.gui;
 import sun.util.locale.LanguageTag;
 
 public class LanguageSetting {
-    private String language = "English";
-
+    enum Language{
+        ENGLISH,
+        CHINESE
+    }
+    private String language;
     public String getLanguage() {
         return language;
     }
