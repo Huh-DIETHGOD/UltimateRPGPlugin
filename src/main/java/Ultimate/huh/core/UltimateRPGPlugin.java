@@ -4,7 +4,7 @@ import Ultimate.huh.core.MySQL.URPGTable;
 import Ultimate.huh.core.commands.impl.URPGCommandsRouter;
 import Ultimate.huh.core.events.EventsManager;
 import Ultimate.huh.core.expansion.Environment;
-import Ultimate.huh.core.gui.LanguageSetting;
+import Ultimate.huh.core.config.language.LanguageSetting;
 import Ultimate.huh.core.metrics.Metrics;
 import Ultimate.huh.core.scheduling.Scheduler;
 import Ultimate.huh.core.utils.UpdateCheckerUtil;
@@ -34,6 +34,7 @@ public final class UltimateRPGPlugin extends JavaPlugin {
     private SQLManager sqlManager;
     private Scheduler scheduler;
     private LanguageSetting languageSetting;
+    private String language;
     private final EventsManager eventsManager = new EventsManager();
     private static Economy econ = null;
     private static Permission perms = null;
@@ -51,7 +52,7 @@ public final class UltimateRPGPlugin extends JavaPlugin {
         saveConfig();
         reloadConfig();
 
-        // 检查服务器环境
+        // Check server environment
         String ServerVersion = Bukkit.getServer().getClass().getPackage().getName().split("\\.")[3];
         boolean isSpigot;
         try {
@@ -66,7 +67,7 @@ public final class UltimateRPGPlugin extends JavaPlugin {
             getServer().getPluginManager().disablePlugin(this);
         }
 
-        // 检查插件版本
+        // Check for plugin version
         if (this.getResourceId() != 0) {
             (new UpdateCheckerUtil(this)).getVersion((version) -> {
                 DefaultArtifactVersion currentVersion = new DefaultArtifactVersion(this.getDescription().getVersion());
@@ -110,9 +111,9 @@ public final class UltimateRPGPlugin extends JavaPlugin {
         this.setupEvents();
         this.setupSQLManager();
         this.setupSQLTable();
+        this.setupLanguage();
 
         // Others
-        languageSetting.setLanguage("English");
     }
 
     @Override
@@ -140,12 +141,11 @@ public final class UltimateRPGPlugin extends JavaPlugin {
     }
 
     private void setupEvents() {
-        Bukkit.getPluginManager().registerEvents(this.getEventsManager(), this);
+        if (Bukkit.getPluginManager() != null) {
+            Bukkit.getPluginManager().registerEvents(this.getEventsManager(), this);
+        }
     }
 
-    /**
-     * 链接SQL数据库
-     */
     public void setupSQLManager() {
         this.saveDefaultConfig();
         this.reloadConfig();
@@ -181,9 +181,6 @@ public final class UltimateRPGPlugin extends JavaPlugin {
 
     }
 
-    /**
-     * 创建SQL数据库
-     */
     private void setupSQLTable() {
         FileConfiguration config = this.getConfig();
         Boolean firstSetUp = config.getBoolean("Ultimate.firstTimeLoad");
@@ -196,6 +193,12 @@ public final class UltimateRPGPlugin extends JavaPlugin {
             config.set("Ultimate.firstTimeLoad", false);
             this.saveConfig();
         }
+    }
+
+    private void setupLanguage() {
+        FileConfiguration config = this.getConfig();
+        language = config.getString("Ultimate.language.language");
+        languageSetting.setLanguage(language);
     }
 
     private boolean setupEconomy() {

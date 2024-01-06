@@ -2,7 +2,7 @@ package Ultimate.huh.core.commands;
 
 import Ultimate.huh.core.UltimateRPGPlugin;
 import Ultimate.huh.core.commands.impl.URPGCommandsFactory;
-import Ultimate.huh.core.gui.LanguageSetting;
+import Ultimate.huh.core.config.language.LanguageSetting;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.jetbrains.annotations.NotNull;
