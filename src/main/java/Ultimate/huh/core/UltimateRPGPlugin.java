@@ -161,9 +161,7 @@ public final class UltimateRPGPlugin extends JavaPlugin {
             return;
         }
 
-        getLogger().info("trying to create sqlManager");
-
-        try {
+         try {
             sqlManager = EasySQL.createManager(driver, url, username, password);
         } catch (Exception e) {
             getLogger().severe(e.getMessage());
