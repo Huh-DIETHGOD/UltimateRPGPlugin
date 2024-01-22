@@ -6,14 +6,15 @@ import Ultimate.huh.core.commands.impl.URPGCommandsFactory;
 import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Unmodifiable;
+import org.junit.runner.Description;
 
 import java.util.List;
 
 public class CommandHelp extends URPGCommandsFactory {
-    protected CommandHelp(@NotNull String label, String... alias) {
-        super("help", new String[0]);
+    private final String description = "Use 'help' command to get a list of commands and their usage";
+    protected CommandHelp(@NotNull String label, String description , String... alias) {
+        super("help", description, new String[0]);
     }
-
     private static UltimateRPGPlugin instance;
     private static CommandDescription cd;
 
@@ -23,10 +24,10 @@ public class CommandHelp extends URPGCommandsFactory {
             case "":
 
             case "help":
-                sender.sendMessage("");
+                sender.sendMessage(this.getDescription());
                 break;
             case "sql":
-
+                sender.sendMessage("");
                 break;
             case "language":
 

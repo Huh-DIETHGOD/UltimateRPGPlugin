@@ -17,15 +17,16 @@ public abstract class URPGCommandsFactory {
     private final @NotNull String label;
     private final @NotNull Set<String> alias;
     private @Nullable String permission;
+    private @Nullable String description;
 
-    // 构造函数
-    protected URPGCommandsFactory(@NotNull String label, String... alias) {
+
+    protected URPGCommandsFactory(@NotNull String label, String description , String... alias) {
         this.label = label;
+        this.description = description;
         this.alias = Sets.newHashSet(alias);
         this.setPermission("urpg." + label);
     }
 
-    //
     public static @NotNull Stream<URPGCommandsFactory> filterByPermission(@NotNull CommandSender sender, @NotNull Stream<URPGCommandsFactory> commands) {
         return commands.filter((target) -> {
             return target.getPermission() == null || sender.hasPermission(target.getPermission());
@@ -61,6 +62,14 @@ public abstract class URPGCommandsFactory {
 
     public void setPermission(@NotNull String permission) {
         this.permission = permission;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public void URPGCommand(@NotNull UltimateRPGPlugin plugin, @NotNull CommandSender sender, @NotNull String alias, @NotNull @Unmodifiable List<String> params) {
