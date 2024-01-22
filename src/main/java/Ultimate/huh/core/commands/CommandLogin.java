@@ -9,8 +9,9 @@ import org.jetbrains.annotations.Unmodifiable;
 import java.util.List;
 
 public class CommandLogin extends URPGCommandsFactory {
+    private static final String description = "Use this command to login";
     public CommandLogin() {
-        super("login", new String[0]);
+        super("login", description, new String[0]);
     }
 
     public void URPGCommand(@NotNull UltimateRPGPlugin plugin, @NotNull CommandSender sender, @NotNull String alias, @NotNull @Unmodifiable List<String> params) {

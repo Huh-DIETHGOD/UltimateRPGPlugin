@@ -11,8 +11,8 @@ import org.junit.runner.Description;
 import java.util.List;
 
 public class CommandHelp extends URPGCommandsFactory {
-    private final String description = "Use 'help' command to get a list of commands and their usage";
-    protected CommandHelp(@NotNull String label, String description , String... alias) {
+    private static final String description = "Use this command to get a list of commands and their usage";
+    protected CommandHelp() {
         super("help", description, new String[0]);
     }
     private static UltimateRPGPlugin instance;

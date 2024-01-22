@@ -19,11 +19,10 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 
 public class CommandEasy_SQL extends URPGCommandsFactory {
-
+    private static final String description = "SQL commands";
     public CommandEasy_SQL() {
-        super("sql" , new String[0]);
+        super("sql" , description, new String[0]);
     }
-
     SQLManager sqlManager;
     Logger logger;
     private static UltimateRPGPlugin instance;

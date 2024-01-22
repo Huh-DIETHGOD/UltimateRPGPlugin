@@ -18,8 +18,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CommandGUI extends URPGCommandsFactory {
+    private static final String description = "Use this command to open GUI";
     public CommandGUI() {
-        super("gui", new String[0]);
+        super("gui", description, new String[0]);
     }
 
     public void URPGCommand(@NotNull UltimateRPGPlugin plugin, @NotNull CommandSender sender, @NotNull String alias, @NotNull @Unmodifiable List<String> params) {

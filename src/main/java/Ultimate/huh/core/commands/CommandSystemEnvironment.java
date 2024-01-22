@@ -11,8 +11,9 @@ import java.util.List;
 import java.util.Properties;
 
 public class CommandSystemEnvironment extends URPGCommandsFactory {
+    private static final String description = "Use this command to check system environment";
     public CommandSystemEnvironment() {
-        super("system", new String[0]);
+        super("system", description,  new String[0]);
     }
 
     public void URPGCommand(@NotNull UltimateRPGPlugin plugin, @NotNull CommandSender sender, @NotNull String alias, @NotNull @Unmodifiable List<String> params) {

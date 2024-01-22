@@ -12,16 +12,17 @@ import org.jetbrains.annotations.Unmodifiable;
 import java.util.List;
 
 public class CommandInfo extends URPGCommandsFactory {
+    private static final String description = "Use this command to get information about the plugin";
     public CommandInfo() {
-        super("info", new String[0]);
+        super("info", description, new String[0]);
     }
 
     public void URPGCommand(@NotNull UltimateRPGPlugin plugin, @NotNull CommandSender sender, @NotNull String alias, @NotNull @Unmodifiable List<String> params) {
-        PluginDescriptionFile description = plugin.getDescription();
+        PluginDescriptionFile pluginDescription = plugin.getDescription();
         MsgUtil.msg(sender, ChatColor.AQUA + "[UltimateRPGPlugin]" + ChatColor.GREEN + "\n" +
                 "--------------------------------\n" +
-                "You are using " + description.getName() + description.getVersion() + "\n" +
-                "Author:" + description.getAuthors() + "\n" +
+                "You are using " + pluginDescription.getName() + pluginDescription.getVersion() + "\n" +
+                "Author:" + pluginDescription.getAuthors() + "\n" +
                 "--------------------------------" );
     }
 

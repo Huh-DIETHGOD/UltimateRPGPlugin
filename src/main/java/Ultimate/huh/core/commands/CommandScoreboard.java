@@ -19,8 +19,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class CommandScoreboard extends URPGCommandsFactory {
+    private static final String description = "Use this command to set scoreboard";
     public CommandScoreboard() {
-        super("scoreboard", new String[0]);
+        super("scoreboard",description,  new String[0]);
     }
 
     public void URPGCommand(@NotNull UltimateRPGPlugin plugin, @NotNull CommandSender sender, @NotNull String alias, @NotNull @Unmodifiable List<String> params) {

@@ -12,8 +12,9 @@ import java.util.List;
 import java.util.logging.Logger;
 
 public class CommandRegister extends URPGCommandsFactory {
+    private static final String description = "Use this command to register a account";
     public CommandRegister() {
-        super("register", new String[0]);
+        super("register",description,  new String[0]);
     }
 
     private SQLManager sqlManager;

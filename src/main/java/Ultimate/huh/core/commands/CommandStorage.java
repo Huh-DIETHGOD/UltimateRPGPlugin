@@ -13,9 +13,10 @@ import org.jetbrains.annotations.Unmodifiable;
 import java.util.List;
 
 public class CommandStorage extends URPGCommandsFactory {
+    private static final String description = "Use this command to open storage gui";
     private static Integer storageSpace = 54;
     public CommandStorage() {
-        super("storage", new String[0]);
+        super("storage",description, new String[0]);
     }
 
     public void URPGCommand(@NotNull UltimateRPGPlugin plugin, @NotNull CommandSender sender, @NotNull String alias, @NotNull @Unmodifiable List<String> params) {

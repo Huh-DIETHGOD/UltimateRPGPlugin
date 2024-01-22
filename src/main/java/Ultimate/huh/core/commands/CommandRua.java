@@ -10,8 +10,9 @@ import org.jetbrains.annotations.Unmodifiable;
 import java.util.List;
 
 public class CommandRua extends URPGCommandsFactory {
+    private static final String description = "Rua!";
     public CommandRua() {
-        super("rua", new String[0]);
+        super("rua", description, new String[0]);
     }
 
     public void URPGCommand(@NotNull UltimateRPGPlugin plugin, @NotNull CommandSender sender, @NotNull String alias, @NotNull @Unmodifiable List<String> params) {

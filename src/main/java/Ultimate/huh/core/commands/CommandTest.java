@@ -10,8 +10,9 @@ import org.jetbrains.annotations.Unmodifiable;
 import java.util.List;
 
 public class CommandTest extends URPGCommandsFactory {
+    private static final String description = "Use this command to test the stats of the plugin";
     public CommandTest() {
-        super("test", new String[0]);
+        super("test", description, new String[0]);
     }
 
     public void URPGCommand(@NotNull UltimateRPGPlugin plugin, @NotNull CommandSender sender, @NotNull String alias, @NotNull @Unmodifiable List<String> params) {

@@ -13,8 +13,9 @@ import java.util.List;
 import java.util.logging.Logger;
 
 public class CommandLanguage extends URPGCommandsFactory {
-    protected CommandLanguage(@NotNull String label, String... alias) {
-        super("language", new String[0]);
+    private static final String description = "Use this command to switch languages";
+    protected CommandLanguage() {
+        super("language", description, new String[0]);
     }
 
     private static UltimateRPGPlugin instance;
