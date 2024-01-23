@@ -22,7 +22,8 @@ public class CommandHelp extends URPGCommandsFactory {
         String[] args = params.toArray(new String[params.size()]);
         switch (args[1]){
             case "":
-
+                sender.sendMessage("Sorry,but it seems you didn't search anything");
+                break;
             case "help":
                 sender.sendMessage(this.getDescription());
                 break;
@@ -45,7 +46,6 @@ public class CommandHelp extends URPGCommandsFactory {
 
                 break;
             case "announcement":
-
 
                 break;
         }
