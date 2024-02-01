@@ -1,12 +1,10 @@
 package Ultimate.huh.core.commands;
 
 import Ultimate.huh.core.UltimateRPGPlugin;
-import Ultimate.huh.core.commands.impl.CommandDescription;
 import Ultimate.huh.core.commands.impl.URPGCommandsFactory;
 import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Unmodifiable;
-import org.junit.runner.Description;
 
 import java.util.List;
 
@@ -16,7 +14,6 @@ public class CommandHelp extends URPGCommandsFactory {
         super("help", description, new String[0]);
     }
     private static UltimateRPGPlugin instance;
-    private static CommandDescription cd;
 
     public void URPGCommand(@NotNull UltimateRPGPlugin plugin, @NotNull CommandSender sender, @NotNull String alias, @NotNull @Unmodifiable List<String> params) {
         String[] args = params.toArray(new String[params.size()]);
@@ -46,7 +43,7 @@ public class CommandHelp extends URPGCommandsFactory {
 
                 break;
             case "announcement":
-
+                sender.sendMessage("");
                 break;
         }
 

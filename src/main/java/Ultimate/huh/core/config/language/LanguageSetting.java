@@ -5,7 +5,6 @@ import org.bukkit.configuration.file.FileConfiguration;
 
 public class LanguageSetting {
     private String language = "English";
-    private LanguageOptions languageOptions;
     private static UltimateRPGPlugin instance;
     FileConfiguration config = instance.getConfig();
 
@@ -14,8 +13,8 @@ public class LanguageSetting {
     }
 
     public void setLanguage(String language) {
-            if (language != null && language.equals(languageOptions.values())) {
-            this.language = language;
+        if (language != null) {
+            config.set("Ultimate.language.language", language);
         }
     }
 }

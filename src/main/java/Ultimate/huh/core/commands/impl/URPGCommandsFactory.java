@@ -19,7 +19,6 @@ public abstract class URPGCommandsFactory {
     private @Nullable String permission;
     private @Nullable String description;
 
-
     protected URPGCommandsFactory(@NotNull String label, String description , String... alias) {
         this.label = label;
         this.description = description;
@@ -66,10 +65,6 @@ public abstract class URPGCommandsFactory {
 
     public String getDescription() {
         return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public void URPGCommand(@NotNull UltimateRPGPlugin plugin, @NotNull CommandSender sender, @NotNull String alias, @NotNull @Unmodifiable List<String> params) {

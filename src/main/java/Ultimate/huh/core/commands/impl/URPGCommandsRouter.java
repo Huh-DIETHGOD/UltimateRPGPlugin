@@ -19,7 +19,7 @@ import java.util.stream.Stream;
 public class URPGCommandsRouter implements CommandExecutor, TabCompleter {
     private static final @Unmodifiable List<URPGCommandsFactory> COMMANDS = ImmutableList.of(new CommandInfo(),
             new CommandAnnouncement(), new CommandGUI(), new CommandStorage(), new CommandTest(), new CommandRua(),
-            new CommandSystemEnvironment(), new CommandEasy_SQL(), new CommandLogin(), new CommandRegister(),new CommandScoreboard());
+            new CommandSystemEnvironment(), new CommandSQL(), new CommandLogin(), new CommandRegister(),new CommandScoreboard());
     private final @NotNull UltimateRPGPlugin plugin;
     private final @NotNull @Unmodifiable Map<String, URPGCommandsFactory> commands;
 

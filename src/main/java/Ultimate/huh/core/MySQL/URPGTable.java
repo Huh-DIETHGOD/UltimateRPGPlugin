@@ -15,11 +15,10 @@ import java.util.function.Consumer;
 public enum URPGTable implements SQLTable{
     URPGTable((table) -> {
         table.addAutoIncrementColumn("id", NumberType.INT, true, true);
-        table.addColumn("playerName", "VARCHAR(32) NOT NULL");
-        table.addColumn("uuid", "VARCHAR(64) UNSIGNED NOT NULL");
-        table.addColumn("value", "INT(32) UNSIGNED NOT NULL");
-        table.setIndex("playerName", IndexType.UNIQUE_KEY);
-        table.setIndex("uuid", IndexType.UNIQUE_KEY);
+        table.addColumn("playerName", "VARCHAR(64) NOT NULL");
+        table.addColumn("value", "DECIMAL(64,2) UNSIGNED NOT NULL");
+        table.addColumn("permission", "VARCHAR(8)");
+        table.setIndex("playerName", IndexType.PRIMARY_KEY);
     });
 
     private final Consumer<TableCreateBuilder> builder;
@@ -37,7 +36,6 @@ public enum URPGTable implements SQLTable{
 
     @Override
     public @NotNull String getTableName() {
-        // 这里直接选择用枚举的名称作为table的主名称
         return (tablePrefix != null ? tablePrefix : "") + name();
     }
 
@@ -61,6 +59,8 @@ public enum URPGTable implements SQLTable{
                 value.create(manager, tablePrefix);
             } catch (SQLException e) {
                 // 提示异常
+                System.err.println("");
+
             }
         }
     }

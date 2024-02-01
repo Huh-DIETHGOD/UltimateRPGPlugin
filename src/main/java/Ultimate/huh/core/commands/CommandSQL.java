@@ -18,9 +18,9 @@ import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 
-public class CommandEasy_SQL extends URPGCommandsFactory {
+public class CommandSQL extends URPGCommandsFactory {
     private static final String description = "SQL commands";
-    public CommandEasy_SQL() {
+    public CommandSQL() {
         super("sql" , description, new String[0]);
     }
     SQLManager sqlManager;
@@ -34,24 +34,20 @@ public class CommandEasy_SQL extends URPGCommandsFactory {
 
         switch (params.get(0)) {
             case "query":
-                // /urpg sql query <playerName> <colum>
+                // /urpg sql query <> <colum>
                 flag = executeQuery(sender, args);
                 break;
             case "insert":
-                // /urpg sql insert <playerName> <selection> <newData>
+                // /urpg sql insert <> <selection> <newData>
                 flag = executeInsert(sender, args);
                 break;
             case "update":
-                // /urpg sql update <playerName> <selection> <newData>
+                // /urpg sql update <> <selection> <newData>
                 flag = executeUpdate(sender, args);
                 break;
             case "delete":
-                // /urpg sql delete <playerName> <selection>
+                // /urpg sql delete <> <selection>
                 flag = executeDelete(sender, args);
-                break;
-            case "replace":
-                // /urpg sql replace <playerName> <selection> <newData>
-                flag = executeReplace(sender, args);
                 break;
         }
     }
@@ -59,13 +55,9 @@ public class CommandEasy_SQL extends URPGCommandsFactory {
     private boolean executeQuery(CommandSender sender, String[] args) {
         if (args.length >= 2) {
             sender.sendMessage("current thread: " + Thread.currentThread().getName());
-            //得到查询构建器
             QueryAction queryAction = sqlManager.createQuery()
-                    //指明需要操作的table表
                     .inTable("URPGTable")
-                    //指明需要操作的column字段
                     .selectColumns(args[2])
-                    //搜索内容
                     .addCondition("playerName", args[1])
                     .orderBy("id", false)
                     .setPageLimit(0, 5)
@@ -192,10 +184,6 @@ public class CommandEasy_SQL extends URPGCommandsFactory {
             sender.sendMessage("player does not exist");
             return true;
         }
-        return false;
-    }
-
-    private boolean executeReplace(CommandSender sender, String[] args) {
         return false;
     }
 

@@ -1,7 +1,6 @@
 package Ultimate.huh.core.commands;
 
 import Ultimate.huh.core.UltimateRPGPlugin;
-import Ultimate.huh.core.commands.impl.CommandDescription;
 import Ultimate.huh.core.commands.impl.URPGCommandsFactory;
 import Ultimate.huh.core.config.language.LanguageSetting;
 import org.bukkit.command.CommandSender;
@@ -22,7 +21,6 @@ public class CommandLanguage extends URPGCommandsFactory {
     private static LanguageSetting language;
     private static FileConfiguration config = instance.getConfig();
     private Logger logger;
-    private static CommandDescription cd;
 
 
     public void URPGCommand(@NotNull UltimateRPGPlugin plugin, @NotNull CommandSender sender, @NotNull String alias, @NotNull @Unmodifiable List<String> params) {
