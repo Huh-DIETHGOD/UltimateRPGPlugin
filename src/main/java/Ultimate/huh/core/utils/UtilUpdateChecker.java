@@ -10,8 +10,8 @@ import java.net.URL;
 import java.util.Scanner;
 import java.util.function.Consumer;
 
-public class UpdateCheckerUtil extends PluginDependent<UltimateRPGPlugin> {
-    public UpdateCheckerUtil(@NotNull UltimateRPGPlugin plugin) {
+public class UtilUpdateChecker extends PluginDependent<UltimateRPGPlugin> {
+    public UtilUpdateChecker(@NotNull UltimateRPGPlugin plugin) {
         super(plugin);
     }
 

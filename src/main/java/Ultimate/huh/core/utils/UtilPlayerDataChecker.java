@@ -1,12 +1,11 @@
 package Ultimate.huh.core.utils;
 
-import cc.carm.lib.easysql.EasySQL;
 import cc.carm.lib.easysql.api.SQLManager;
 import org.bukkit.entity.Player;
 
 import java.sql.SQLException;
 
-public class PlayerDataCheckerUtil {
+public class UtilPlayerDataChecker {
     private SQLManager sqlManager;
 
     public boolean checkPlayerData(Player player) {

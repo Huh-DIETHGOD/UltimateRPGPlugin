@@ -2,7 +2,7 @@ package Ultimate.huh.core.commands;
 
 import Ultimate.huh.core.UltimateRPGPlugin;
 import Ultimate.huh.core.commands.impl.URPGCommandsFactory;
-import Ultimate.huh.core.utils.MsgUtil;
+import Ultimate.huh.core.utils.UtilMsg;
 import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Unmodifiable;
@@ -19,7 +19,7 @@ public class CommandSystemEnvironment extends URPGCommandsFactory {
     public void URPGCommand(@NotNull UltimateRPGPlugin plugin, @NotNull CommandSender sender, @NotNull String alias, @NotNull @Unmodifiable List<String> params) {
         Properties p = System.getProperties();// 获取当前的系统属性
         p.list(System.out);// 将属性列表输出
-        MsgUtil.msg(sender,"CPU core:\n"+//Runtime.getRuntime() 获取当前运行时的实例
+        UtilMsg.msg(sender,"CPU core:\n"+//Runtime.getRuntime() 获取当前运行时的实例
         Runtime.getRuntime().availableProcessors()+"\n"+//availableProcessors() 获取当前电脑 CPU 数量
         "Ram：\n"+
         Runtime.getRuntime().totalMemory()+"\n"+//totalMemory() 获取 java 虚拟机中的内存总量

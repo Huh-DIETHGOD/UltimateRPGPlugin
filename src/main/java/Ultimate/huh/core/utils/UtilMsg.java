@@ -10,10 +10,10 @@ import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.stream.Collectors;
 
-public class MsgUtil {
+public class UtilMsg {
     private static UltimateRPGPlugin instance;
 
-    public MsgUtil() {
+    public UtilMsg() {
     }
 
     public static void log(Level level, String msg, Object... args) {
@@ -42,13 +42,13 @@ public class MsgUtil {
 
     public static void msg(@NotNull CommandSender sender, String... messages) {
         if (messages.length != 0) {
-            sender.sendMessage((String) Arrays.stream(messages).map(MsgUtil::color).collect(Collectors.joining("\n")));
+            sender.sendMessage((String) Arrays.stream(messages).map(UtilMsg::color).collect(Collectors.joining("\n")));
         }
     }
 
     public static void broadcast(String... messages) {
         if (messages.length != 0) {
-            Bukkit.broadcastMessage((String)Arrays.stream(messages).map(MsgUtil::color).collect(Collectors.joining("\n")));
+            Bukkit.broadcastMessage((String)Arrays.stream(messages).map(UtilMsg::color).collect(Collectors.joining("\n")));
         }
     }
 

@@ -2,7 +2,7 @@ package Ultimate.huh.core.commands;
 
 import Ultimate.huh.core.UltimateRPGPlugin;
 import Ultimate.huh.core.commands.impl.URPGCommandsFactory;
-import Ultimate.huh.core.utils.MsgUtil;
+import Ultimate.huh.core.utils.UtilMsg;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.PluginDescriptionFile;
@@ -19,7 +19,7 @@ public class CommandInfo extends URPGCommandsFactory {
 
     public void URPGCommand(@NotNull UltimateRPGPlugin plugin, @NotNull CommandSender sender, @NotNull String alias, @NotNull @Unmodifiable List<String> params) {
         PluginDescriptionFile pluginDescription = plugin.getDescription();
-        MsgUtil.msg(sender, ChatColor.AQUA + "[UltimateRPGPlugin]" + ChatColor.GREEN + "\n" +
+        UtilMsg.msg(sender, ChatColor.AQUA + "[UltimateRPGPlugin]" + ChatColor.GREEN + "\n" +
                 "--------------------------------\n" +
                 "You are using " + pluginDescription.getName() + pluginDescription.getVersion() + "\n" +
                 "Author:" + pluginDescription.getAuthors() + "\n" +

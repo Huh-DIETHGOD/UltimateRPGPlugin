@@ -12,7 +12,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-public class ScoreboardUtil {
+public class UtilScoreboard {
 
     /**
      * 重复执行定时任务
@@ -41,10 +41,10 @@ public class ScoreboardUtil {
         playerSet = new HashSet<>();
     }
 
-    public ScoreboardUtil() {
+    public UtilScoreboard() {
     }
 
-    public ScoreboardUtil(ScoreboardCreationStrategyImpl creationStrategy) {
+    public UtilScoreboard(ScoreboardCreationStrategyImpl creationStrategy) {
         if (Objects.isNull(creationStrategy)) {
             throw new IllegalArgumentException("creationStrategy is null");
         }
@@ -61,7 +61,7 @@ public class ScoreboardUtil {
         }
         stopTaskTimer();
         resetUpdatePlayerMainScoreboard();                          //重置更新玩家的主计分板
-        ScoreboardUtil.creationStrategy = creationStrategy;         //设置计分板的创建策略
+        UtilScoreboard.creationStrategy = creationStrategy;         //设置计分板的创建策略
         runTaskTimer();
         return true;
     }

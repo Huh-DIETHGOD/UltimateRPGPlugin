@@ -2,7 +2,7 @@ package Ultimate.huh.core.scoreboard.impl;
 
 import Ultimate.huh.core.UltimateRPGPlugin;
 import Ultimate.huh.core.scoreboard.ScoreboardCreation;
-import Ultimate.huh.core.utils.ScoreboardUtil;
+import Ultimate.huh.core.utils.UtilScoreboard;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -71,7 +71,7 @@ public class ScoreboardCreationStrategyImpl implements ScoreboardCreation {
 
         TeamA.setColor(ChatColor.RED);
         TeamA.setPrefix(ChatColor.RED + "[TeamA]");
-        ScoreboardUtil.changeTeamOptions(TeamA);
+        UtilScoreboard.changeTeamOptions(TeamA);
 
         Team TeamB = scoreboard.getTeam("TeamB");
 
@@ -81,14 +81,14 @@ public class ScoreboardCreationStrategyImpl implements ScoreboardCreation {
 
         TeamB.setColor(ChatColor.BLUE);
         TeamB.setPrefix(ChatColor.BLUE + "[TeamB]");
-        ScoreboardUtil.changeTeamOptions(TeamB);
+        UtilScoreboard.changeTeamOptions(TeamB);
 
         player.setScoreboard(scoreboard);
 
         Team Huh = scoreboard.getTeam("Huh");
         Huh.setColor(ChatColor.AQUA);
         Huh.setPrefix(ChatColor.AQUA + "[Huh]");
-        ScoreboardUtil.changeTeamOptions(Huh);
+        UtilScoreboard.changeTeamOptions(Huh);
 
         Huh.addEntry("Huh_DIETHGOD");
     }

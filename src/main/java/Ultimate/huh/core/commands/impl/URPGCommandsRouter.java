@@ -2,7 +2,7 @@ package Ultimate.huh.core.commands.impl;
 
 import Ultimate.huh.core.UltimateRPGPlugin;
 import Ultimate.huh.core.commands.*;
-import Ultimate.huh.core.utils.MsgUtil;
+import Ultimate.huh.core.utils.UtilMsg;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import org.bukkit.ChatColor;
@@ -50,13 +50,13 @@ public class URPGCommandsRouter implements CommandExecutor, TabCompleter {
             String search = args[0].toLowerCase(Locale.ROOT);
             URPGCommandsFactory target = (URPGCommandsFactory)this.commands.get(search);
             if (target == null) {
-                MsgUtil.msg(sender, new String[]{ChatColor.AQUA + "[UltimateRPGPlugin] " + ChatColor.RED + "Unknown command " + ChatColor.YELLOW + search});
+                UtilMsg.msg(sender, new String[]{ChatColor.AQUA + "[UltimateRPGPlugin] " + ChatColor.RED + "Unknown command " + ChatColor.YELLOW + search});
                 return true;
 
             } else {
                 String permission = target.getPermission();
                 if (permission != null && !permission.isEmpty() && !sender.hasPermission(permission)) {
-                    MsgUtil.msg(sender, new String[]{ChatColor.AQUA + "[UltimateRPGPlugin] " + ChatColor.RED + "You do not have permission to do this!"});
+                    UtilMsg.msg(sender, new String[]{ChatColor.AQUA + "[UltimateRPGPlugin] " + ChatColor.RED + "You do not have permission to do this!"});
                     return true;
 
                 } else {

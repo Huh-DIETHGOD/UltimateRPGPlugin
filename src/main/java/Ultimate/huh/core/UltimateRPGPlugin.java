@@ -7,7 +7,7 @@ import Ultimate.huh.core.expansion.Environment;
 import Ultimate.huh.core.config.language.LanguageSetting;
 import Ultimate.huh.core.metrics.Metrics;
 import Ultimate.huh.core.scheduling.Scheduler;
-import Ultimate.huh.core.utils.UpdateCheckerUtil;
+import Ultimate.huh.core.utils.UtilUpdateChecker;
 import cc.carm.lib.easysql.EasySQL;
 import cc.carm.lib.easysql.api.SQLManager;
 import cc.carm.lib.easysql.api.SQLQuery;
@@ -27,7 +27,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.sql.SQLException;
 import java.util.Objects;
-import java.util.Optional;
 import java.util.concurrent.atomic.AtomicReference;
 
 
@@ -73,7 +72,7 @@ public final class UltimateRPGPlugin extends JavaPlugin {
 
         // Check for plugin version
         if (this.getResourceId() != 0) {
-            (new UpdateCheckerUtil(this)).getVersion((version) -> {
+            (new UtilUpdateChecker(this)).getVersion((version) -> {
                 DefaultArtifactVersion currentVersion = new DefaultArtifactVersion(this.getDescription().getVersion());
                 DefaultArtifactVersion mostRecentVersion = new DefaultArtifactVersion(version);
                 if (currentVersion.compareTo(mostRecentVersion) <= 0 && !currentVersion.equals(mostRecentVersion)) {
