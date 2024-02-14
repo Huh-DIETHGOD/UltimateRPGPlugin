@@ -214,6 +214,7 @@ public final class UltimateRPGPlugin extends JavaPlugin {
         }
     }
 
+
     private void setupLanguage() {
         FileConfiguration config = this.getConfig();
         language = config.getString("Ultimate.language.language");
