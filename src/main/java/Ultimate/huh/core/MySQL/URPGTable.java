@@ -59,7 +59,7 @@ public enum URPGTable implements SQLTable{
                 value.create(manager, tablePrefix);
             } catch (SQLException e) {
                 // 提示异常
-                System.err.println("");
+                System.err.println("Failed to initalize the SQL table, please check!");
 
             }
         }
