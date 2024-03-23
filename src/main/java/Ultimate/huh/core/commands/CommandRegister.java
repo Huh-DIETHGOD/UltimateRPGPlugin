@@ -2,9 +2,13 @@ package Ultimate.huh.core.commands;
 
 import Ultimate.huh.core.UltimateRPGPlugin;
 import Ultimate.huh.core.commands.impl.URPGCommandsFactory;
+import Ultimate.huh.core.gui.GUIInventory;
 import cc.carm.lib.easysql.api.SQLManager;
 import cc.carm.lib.easysql.api.action.query.QueryAction;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Unmodifiable;
 
@@ -21,6 +25,7 @@ public class CommandRegister extends URPGCommandsFactory {
     private static UltimateRPGPlugin instance;
 
     public void URPGCommand(@NotNull UltimateRPGPlugin plugin, @NotNull CommandSender sender, @NotNull String alias, @NotNull @Unmodifiable List<String> params) {
+        Player player = (Player) sender;
         QueryAction queryAction = sqlManager.createQuery()
                 .inTable("URPGTable")
                 .selectColumns("playerName")
@@ -40,6 +45,9 @@ public class CommandRegister extends URPGCommandsFactory {
         } else {
             sender.sendMessage("Password do not match, please check!");
         }
+
+        Bukkit.createInventory(player, 54, ChatColor.BLACK + player.getName() + "'s State");
+
 
     }
 
