@@ -12,13 +12,13 @@ public class onPlayerLoginListener implements Listener {
     public void onPlayerLoginListener(PlayerLoginEvent event) {
         Player player = event.getPlayer();
         String PlayerName = player.getName();
+
         player.setWalkSpeed(0);
+        player.setCanPickupItems(false);
 
-
-
-        if(isLoggedIn == false){
+        if (isLoggedIn == true){
+            player.setWalkSpeed(1);
         }
-
 
         UtilPlayerDataSaver PlayerDataSaverUtil = new UtilPlayerDataSaver(player);
 

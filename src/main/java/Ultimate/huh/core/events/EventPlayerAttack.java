@@ -16,7 +16,6 @@ public class EventPlayerAttack extends Event implements Cancellable {
     public EventPlayerAttack(@NotNull final Player player, @NotNull final Entity entity) {
         super();
         this.entity = entity;
-
     }
 
     @Override
