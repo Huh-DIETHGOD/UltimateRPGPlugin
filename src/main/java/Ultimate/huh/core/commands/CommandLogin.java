@@ -3,6 +3,7 @@ package Ultimate.huh.core.commands;
 import Ultimate.huh.core.UltimateRPGPlugin;
 import Ultimate.huh.core.commands.impl.URPGCommandsFactory;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Unmodifiable;
 
