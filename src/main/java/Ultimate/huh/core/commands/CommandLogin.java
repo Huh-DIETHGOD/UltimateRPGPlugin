@@ -31,9 +31,10 @@ public class CommandLogin extends URPGCommandsFactory {
     private onPlayerLoginListener listener;
 
 
-
     public void URPGCommand(@NotNull UltimateRPGPlugin plugin, @NotNull CommandSender sender, @NotNull String alias, @NotNull @Unmodifiable List<String> params) {
         String[] args = params.toArray(new String[params.size()]);
+
+
         if (listener.getIsIsLoggedIn() == false){
             Timer(sender);
             if (args[0] == passwordResult){
