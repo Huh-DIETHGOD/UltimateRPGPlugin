@@ -2,11 +2,13 @@ package Ultimate.huh.core.commands;
 
 import Ultimate.huh.core.UltimateRPGPlugin;
 import Ultimate.huh.core.commands.impl.URPGCommandsFactory;
+import Ultimate.huh.core.listeners.onPlayerLoginListener;
 import cc.carm.lib.easysql.api.SQLManager;
 import cc.carm.lib.easysql.api.action.query.QueryAction;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.event.player.PlayerLoginEvent;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Unmodifiable;
 
@@ -24,18 +26,18 @@ public class CommandLogin extends URPGCommandsFactory {
     }
 
     SQLManager sqlManager;
-    private boolean isLogin = false;
     private static UltimateRPGPlugin instance;
     private static String passwordResult;
+    private onPlayerLoginListener listener;
 
 
 
     public void URPGCommand(@NotNull UltimateRPGPlugin plugin, @NotNull CommandSender sender, @NotNull String alias, @NotNull @Unmodifiable List<String> params) {
         String[] args = params.toArray(new String[params.size()]);
-        if (isLogin == false){
+        if (listener.getIsIsLoggedIn() == false){
             Timer(sender);
             if (args[0] == passwordResult){
-                isLogin = true;
+                listener.setIsLoggedIn(true);
             }
         }
 
@@ -62,20 +64,17 @@ public class CommandLogin extends URPGCommandsFactory {
                     .setPageLimit(0, 5)
                     .build();
 
-            //通过query对象执行里面的查询sql
             queryAction.executeAsync(successQuery -> {
-                //获取resultSet
                 ResultSet resultSet1 = successQuery.getResultSet();
-                //保存resultSet到线程安全的数据结构中
                 ConcurrentHashMap<String, Object> concurrentHashMap = new ConcurrentHashMap<>();
 
-                //上面的查询结果只有一个
                 if (resultSet1.next()) {
                     concurrentHashMap.put("password", resultSet1.getString("password"));
                 }
-                    //消费查询结果
                 passwordResult = concurrentHashMap.elements().toString();
                 });
             return true;
     }
+
+
 }

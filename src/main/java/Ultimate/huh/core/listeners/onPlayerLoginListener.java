@@ -7,6 +7,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerLoginEvent;
 
 public class onPlayerLoginListener implements Listener {
+
     private static boolean isLoggedIn = false;
     @EventHandler
     public void onPlayerLoginListener(PlayerLoginEvent event) {
@@ -19,13 +20,13 @@ public class onPlayerLoginListener implements Listener {
         if (isLoggedIn == true){
             player.setWalkSpeed(1);
         }
+    }
+    public static boolean getIsIsLoggedIn() {
+        return isLoggedIn;
+    }
 
-        UtilPlayerDataSaver PlayerDataSaverUtil = new UtilPlayerDataSaver(player);
-
-        if (player.getName().equals("")) {
-
-        }
-
+    public static void setIsLoggedIn(boolean isLoggedIn) {
+        onPlayerLoginListener.isLoggedIn = isLoggedIn;
     }
 
 
