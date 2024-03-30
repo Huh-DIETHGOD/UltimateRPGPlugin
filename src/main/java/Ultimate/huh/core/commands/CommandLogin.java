@@ -16,7 +16,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
 
-import static org.graalvm.compiler.debug.DebugOptions.Timers;
 
 public class CommandLogin extends URPGCommandsFactory {
     private static final String description = "Use this command to login";
