@@ -3,6 +3,7 @@ package Ultimate.huh.core.commands;
 import Ultimate.huh.core.UltimateRPGPlugin;
 import Ultimate.huh.core.commands.impl.URPGCommandsFactory;
 import Ultimate.huh.core.gui.GUIInventory;
+import Ultimate.huh.core.listeners.onPlayerLoginListener;
 import cc.carm.lib.easysql.api.SQLManager;
 import cc.carm.lib.easysql.api.action.query.QueryAction;
 import org.bukkit.Bukkit;
@@ -23,6 +24,7 @@ public class CommandRegister extends URPGCommandsFactory {
 
     private SQLManager sqlManager;
     private static UltimateRPGPlugin instance;
+    private onPlayerLoginListener listener;
 
     public void URPGCommand(@NotNull UltimateRPGPlugin plugin, @NotNull CommandSender sender, @NotNull String alias, @NotNull @Unmodifiable List<String> params) {
         Player player = (Player) sender;
@@ -42,6 +44,8 @@ public class CommandRegister extends URPGCommandsFactory {
                     .setColumnNames("playerName", "password")
                     .setParams(sender.getName(), params.get(1).toLowerCase())
                     .executeAsync();
+            sender.sendMessage("Welcome!");
+            listener.setIsLoggedIn(true);
         } else {
             sender.sendMessage("Password do not match, please check!");
         }

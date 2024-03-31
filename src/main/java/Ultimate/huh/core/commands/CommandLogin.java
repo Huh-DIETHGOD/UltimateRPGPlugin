@@ -5,10 +5,7 @@ import Ultimate.huh.core.commands.impl.URPGCommandsFactory;
 import Ultimate.huh.core.listeners.onPlayerLoginListener;
 import cc.carm.lib.easysql.api.SQLManager;
 import cc.carm.lib.easysql.api.action.query.QueryAction;
-import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
-import org.bukkit.event.player.PlayerLoginEvent;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Unmodifiable;
 
@@ -44,6 +41,11 @@ public class CommandLogin extends URPGCommandsFactory {
 
     }
 
+    /**
+     * This method creates a new timer that sends a message to the specified command sender every second for a specified number of seconds.
+     *
+     * @param sender the command sender to send the messages to
+     */
     private static void Timer(CommandSender sender){
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
@@ -51,7 +53,6 @@ public class CommandLogin extends URPGCommandsFactory {
                 sender.sendMessage("You are not logged in yet! Type /login <your password> to login!");
             }
         }, 100, 1000);
-
 
     }
 
@@ -76,6 +77,5 @@ public class CommandLogin extends URPGCommandsFactory {
                 });
             return true;
     }
-
 
 }
