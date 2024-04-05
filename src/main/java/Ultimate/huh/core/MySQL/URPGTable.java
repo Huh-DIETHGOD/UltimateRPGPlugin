@@ -60,7 +60,6 @@ public enum URPGTable implements SQLTable{
             } catch (SQLException e) {
                 // 提示异常
                 System.err.println("Failed to initalize the SQL table, please check!");
-
             }
         }
     }
