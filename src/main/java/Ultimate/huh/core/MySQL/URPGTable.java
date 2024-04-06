@@ -18,6 +18,7 @@ public enum URPGTable implements SQLTable{
         table.addColumn("playerName", "VARCHAR(64) NOT NULL");
         table.addColumn("value", "DECIMAL(64,2) UNSIGNED NOT NULL");
         table.addColumn("permission", "VARCHAR(8)");
+        table.addColumn("password", "VARCHAR(64)");
         table.setIndex("playerName", IndexType.PRIMARY_KEY);
     });
 
