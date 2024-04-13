@@ -5,13 +5,25 @@ import cc.carm.lib.easysql.api.SQLTable;
 import cc.carm.lib.easysql.api.builder.TableCreateBuilder;
 import cc.carm.lib.easysql.api.enums.IndexType;
 import cc.carm.lib.easysql.api.enums.NumberType;
-import cc.carm.lib.easysql.api.table.NamedSQLTable;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.sql.SQLException;
 import java.util.function.Consumer;
 
+
+/**
+ * Database name: URPGDB
+ * Table name: URPGTABLE
+ * Column:{
+ *     id
+ *     playername
+ *     value
+ *     permission
+ *     password
+ *     playerName
+ * }
+ */
 public enum URPGTable implements SQLTable{
     URPGTable((table) -> {
         table.addAutoIncrementColumn("id", NumberType.INT, true, true);
@@ -48,7 +60,6 @@ public enum URPGTable implements SQLTable{
     public boolean create(@NotNull SQLManager sqlManager, @Nullable String tablePrefix) throws SQLException {
         if (this.manager == null) this.manager = sqlManager;
         this.tablePrefix = tablePrefix;
-
         TableCreateBuilder tableBuilder = sqlManager.createTable(getTableName());
         if (builder != null) builder.accept(tableBuilder);
         return tableBuilder.build().executeFunction(l -> l > 0, false);
