@@ -8,7 +8,7 @@ import org.jetbrains.annotations.NotNull;
 
 public final class EventsManager implements Listener {
     public EventsManager() {
-
+        String names[] = {};
     }
 
     public void register(@NotNull CommandSender sender) {

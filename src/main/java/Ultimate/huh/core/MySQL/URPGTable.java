@@ -17,7 +17,7 @@ import java.util.function.Consumer;
  * Table name: URPGTABLE
  * Column:{
  *     id
- *     playername
+ *     playerName
  *     value
  *     permission
  *     password
