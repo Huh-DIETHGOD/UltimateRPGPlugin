@@ -28,11 +28,10 @@ public enum URPGTable implements SQLTable{
     URPGTable((table) -> {
         table.addAutoIncrementColumn("id", NumberType.INT, true, true);
         table.addColumn("playerName", "VARCHAR(64) NOT NULL");
-        table.setIndex("uuid", IndexType.PRIMARY_KEY);
+        table.addColumn("uuid", "VARCHAR(64)");
         table.addColumn("value", "DECIMAL(64,2) UNSIGNED NOT NULL");
-        table.addColumn("permission", "VARCHAR(8)");
+        table.addColumn("permission", "VARCHAR(32)");
         table.addColumn("password", "VARCHAR(64)");
-        table.setIndex("playerName", IndexType.PRIMARY_KEY);
     });
 
     private final Consumer<TableCreateBuilder> builder;
