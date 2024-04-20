@@ -70,7 +70,7 @@ public final class UltimateRPGPlugin extends JavaPlugin {
             getServer().getPluginManager().disablePlugin(this);
         }
 
-        // Check for plugin version
+        // Check up plugin version
         if (this.getResourceId() != 0) {
             (new UtilUpdateChecker(this)).getVersion((version) -> {
                 DefaultArtifactVersion currentVersion = new DefaultArtifactVersion(this.getDescription().getVersion());
@@ -203,7 +203,7 @@ public final class UltimateRPGPlugin extends JavaPlugin {
                 if (data.get() != null){
                     sqlManager.createInsert("URPGTable")
                             .setColumnNames("id", "playerName", "uuid", "permission", "value", "password")
-                            .setParams("114514", "Huh_DIETHGOD", "" , "Loser", "6", "114514")
+                            .setParams("114514", "Huh_DIETHGOD", "" , "Tier4", "6", "114514")
                             .executeAsync();
                 }
             } catch(RuntimeException e){
