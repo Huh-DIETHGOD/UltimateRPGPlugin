@@ -23,10 +23,10 @@ public class CommandSQLConnectionCheck extends URPGCommandsFactory {
             sqlManager.createQuery()
                     .inTable("urpgtable")
                     .selectColumns("playerName","Huh_DIETHGOD")
-                    .setPageLimit(1,5);
-
-
-        } catch (SQLException e) {
+                    .setPageLimit(1,5)
+                    .build();
+        }
+         catch (SQLException e) {
             throw new RuntimeException(e);
         }
 

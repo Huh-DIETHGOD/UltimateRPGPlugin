@@ -12,7 +12,6 @@ public class EventPlayerAttack extends Event implements Cancellable {
     private boolean cancel = false;
     private Entity entity;
 
-
     public EventPlayerAttack(@NotNull final Player player, @NotNull final Entity entity) {
         super();
         this.entity = entity;
@@ -25,6 +24,5 @@ public class EventPlayerAttack extends Event implements Cancellable {
 
     @Override
     public void setCancelled(boolean cancel) {
-
     }
 }
