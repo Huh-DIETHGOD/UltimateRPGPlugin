@@ -284,6 +284,9 @@ public final class UltimateRPGPlugin extends JavaPlugin {
         return this.eventsManager;
     }
 
+    public SQLManager getSqlManager() {
+        return sqlManager;
+    }
 
     public Scheduler getScheduler() {
         return scheduler;
