@@ -1,0 +1,13 @@
+events:
+    about player:
+        PlayerAttack:
+            Usage:
+            Location: Ultimate.huh.core.events.EventPlayerAttack
+
+        PlayerHarm
+
+
+        PlayerLogin
+
+
+        PlayerRegister
