@@ -8,6 +8,7 @@ import Ultimate.huh.core.config.language.LanguageSetting;
 import Ultimate.huh.core.metrics.Metrics;
 import Ultimate.huh.core.scheduling.Scheduler;
 import Ultimate.huh.core.utils.UtilUpdateChecker;
+import Ultimate.huh.external.injector.Injector;
 import cc.carm.lib.easysql.EasySQL;
 import cc.carm.lib.easysql.api.SQLManager;
 import cc.carm.lib.easysql.api.SQLQuery;
@@ -44,6 +45,7 @@ public final class UltimateRPGPlugin extends JavaPlugin {
     private final XConomyAPI XAPI = new XConomyAPI();
     private int resourceId;
     private boolean outdated;
+    private Injector injector;
 
     public UltimateRPGPlugin(){
     }

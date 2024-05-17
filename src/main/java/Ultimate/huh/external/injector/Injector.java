@@ -6,10 +6,15 @@ import java.nio.Buffer;
  * This function is used to inject files to the server core
  *
  */
-public class injector {
+public class Injector {
     private Buffer buffer;
 
 
 
+    private Injector(){
+
+
+
+    }
 
 }
