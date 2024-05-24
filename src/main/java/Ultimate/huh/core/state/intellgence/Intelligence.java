@@ -5,19 +5,13 @@ import org.bukkit.entity.Player;
 import java.awt.*;
 import java.util.HashMap;
 
-public class Intelligence {
+public abstract class Intelligence implements Player{
     private Player player;
     private float intelligence;
     private String icon = "❁";
     private HashMap map;
 
     public Intelligence(){
-
-
-
-
-
-
 
     }
 
@@ -34,7 +28,7 @@ public class Intelligence {
 
 
 
-    public float getIntelligence() {
+    public float getIntelligence(){
         return intelligence;
     }
 
