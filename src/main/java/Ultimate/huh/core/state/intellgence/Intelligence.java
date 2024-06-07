@@ -8,25 +8,8 @@ import java.util.HashMap;
 public abstract class Intelligence implements Player{
     private Player player;
     private float intelligence;
-    private String icon = "❁";
+    private String icon = "";
     private HashMap map;
-
-    public Intelligence(){
-
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     public float getIntelligence(){
         return intelligence;
