@@ -19,3 +19,6 @@ public abstract class Intelligence implements Player{
         this.intelligence = intelligence;
     }
 }
+
+
+
