@@ -1,3 +1,4 @@
+#personal settings
 #This is the config file of UltimateRPG Plugin
 Ultimate:
   datasource:
@@ -10,7 +11,14 @@ Ultimate:
     # English
     # Chinese
     language: English
+  functions:
+    register&Login: true
+    GUI: true
+    PersonalStorage: true
 
 
+
+
+  #System settings
   #DO NOT CHANGE THIS VALUE
   firstTimeLoad: true

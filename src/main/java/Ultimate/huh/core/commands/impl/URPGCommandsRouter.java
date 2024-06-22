@@ -13,6 +13,7 @@ import org.bukkit.command.TabCompleter;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Unmodifiable;
 
+import java.sql.SQLException;
 import java.util.*;
 import java.util.stream.Stream;
 
@@ -42,7 +43,11 @@ public class URPGCommandsRouter implements CommandExecutor, TabCompleter {
         if (args.length == 0) {
             URPGCommandsFactory fallback = (URPGCommandsFactory)this.commands.get("version");
             if (fallback != null) {
-                fallback.URPGCommand(this.plugin, sender, "", Collections.emptyList());
+                try {
+                    fallback.URPGCommand(this.plugin, sender, "", Collections.emptyList());
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
             }
             return true;
 
@@ -60,7 +65,11 @@ public class URPGCommandsRouter implements CommandExecutor, TabCompleter {
                     return true;
 
                 } else {
-                    target.URPGCommand(this.plugin, sender, search, Arrays.asList(Arrays.copyOfRange(args, 1, args.length)));
+                    try {
+                        target.URPGCommand(this.plugin, sender, search, Arrays.asList(Arrays.copyOfRange(args, 1, args.length)));
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
                     return true;
 
                 }
