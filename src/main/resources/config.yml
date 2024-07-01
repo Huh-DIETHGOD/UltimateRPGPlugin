@@ -8,9 +8,11 @@ Ultimate:
     password: 1q2w3e4r
   language:
     # Options:
-    # English
-    # Chinese
+    # English(Default)
+    # Chinese(Under development)
     language: English
+  filelocation:
+
   functions:
     register&Login: true
     GUI: true
@@ -19,6 +21,5 @@ Ultimate:
 
 
 
-  #System settings
-  #DO NOT CHANGE THIS VALUE
+  #catch
   firstTimeLoad: true
