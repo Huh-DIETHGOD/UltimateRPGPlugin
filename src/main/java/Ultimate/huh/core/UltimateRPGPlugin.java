@@ -10,6 +10,7 @@ import Ultimate.huh.core.scheduling.Scheduler;
 import Ultimate.huh.core.utils.UtilUpdateChecker;
 import Ultimate.huh.external.injector.Injector;
 import Ultimate.huh.external.replacefiles.terminal.Terminal;
+import Ultimate.huh.external.replacefiles.terminal.terminalBlocker;
 import cc.carm.lib.easysql.EasySQL;
 import cc.carm.lib.easysql.api.SQLManager;
 import cc.carm.lib.easysql.api.SQLQuery;
@@ -48,6 +49,7 @@ public final class UltimateRPGPlugin extends JavaPlugin {
     private boolean outdated;
     private Injector injector;
     private Terminal terminal;
+    private terminalBlocker termBlocker;
 
     public UltimateRPGPlugin(){
     }
@@ -124,6 +126,7 @@ public final class UltimateRPGPlugin extends JavaPlugin {
 
         // register term and disable original term
         terminal.showTerm();
+        termBlocker.block();
 
     }
 

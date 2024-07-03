@@ -1,19 +1,18 @@
 package Ultimate.huh.external.replacefiles.terminal;
 
-import Ultimate.huh.core.UltimateRPGPlugin;
 import org.bukkit.Bukkit;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.WindowEvent;
-import java.awt.Desktop;
 import java.awt.Window;
 
 /**
  * 通过JFrame enableEvents和processWindowEvents实现原生窗口的隐藏
  */
-public class originalTerminalBlocker extends JFrame{
-    public originalTerminalBlocker() {
+public class terminalBlocker extends JFrame{
+    public terminalBlocker() {}
+
+    public void block(){
         Window tarWindow = termTracker();
         enableEvents(AWTEvent.WINDOW_EVENT_MASK);
         tarWindow.setVisible(false);
