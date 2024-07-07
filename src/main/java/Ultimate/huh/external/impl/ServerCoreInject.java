@@ -5,7 +5,7 @@ import java.io.Writer;
 
 public interface ServerCoreInject {
     File open(File file);
-    File write(File targetFile, Writer writer);
+    boolean write(File targetFile, Writer writer);
 
 
 }

@@ -124,6 +124,10 @@ public final class UltimateRPGPlugin extends JavaPlugin {
 
         // Others
 
+
+        //injectors
+
+
         // register term and disable original term
         terminal.showTerm();
         termBlocker.block();
@@ -190,7 +194,6 @@ public final class UltimateRPGPlugin extends JavaPlugin {
         } catch (SQLException e) {
             getLogger().warning("[UltimateRPGPlugin] " + e);
         }
-
     }
 
     private void setupSQLTable() {
