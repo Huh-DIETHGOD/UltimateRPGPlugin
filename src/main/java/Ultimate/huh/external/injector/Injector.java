@@ -160,7 +160,6 @@ public class Injector implements ServerCoreInject {
             }
             jos.write(temp, 0, temp.length);
         }
-
         if(!has){
             //最后添加
             JarEntry newEntry = new JarEntry(entryName);
@@ -181,6 +180,7 @@ public class Injector implements ServerCoreInject {
     @Deprecated
     @Override
     public boolean write(File targetFile, Writer writer) {
+
         return false;
     }
 }

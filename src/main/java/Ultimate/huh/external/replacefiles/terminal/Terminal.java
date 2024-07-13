@@ -4,6 +4,8 @@ import Ultimate.huh.core.UltimateRPGPlugin;
 
 import javax.swing.*;
 import javax.swing.event.HyperlinkEvent;
+import java.awt.*;
+import java.awt.event.InputMethodEvent;
 import java.io.File;
 
 /**
@@ -12,7 +14,7 @@ import java.io.File;
 public class Terminal extends JFrame{
     private static UltimateRPGPlugin instance;
     public Terminal(){
-        String htmlPath = instance.getClass().getResource("").getPath() + "/UltimateRPGPlugin/UltTerminal.html";
+        String htmlPath = instance.getClass().getResource("").getPath() .replace("core", "external/replacefiles/terminal/UltTerminal.html");
         try{
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             JEditorPane editorPane = new JEditorPane();
@@ -25,21 +27,15 @@ public class Terminal extends JFrame{
             editorPane.setPage(path);
         } catch (Exception e){
         }
-//        setTitle("Ult-Terminal");
-//        setSize(800, 600);
-//        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        setLayout(new FlowLayout());
-//        JButton openListener = new JButton("");
-//        add(openListener);
-//        openListener.addActionListener(new ActionListener() {
-//          @Override
-//        public void actionPerformed(ActionEvent e) {
-
-//            }
-//        });
     }
 
     public void hyperlinkUpdate(HyperlinkEvent e){
+        if(e.getEventType() == HyperlinkEvent.EventType.ACTIVATED){
+            try{
+            } catch (Exception e1){
+                e1.printStackTrace();
+            }
+        }
 
     }
 
