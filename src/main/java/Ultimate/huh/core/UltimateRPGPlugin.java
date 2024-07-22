@@ -28,6 +28,7 @@ import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicReference;
@@ -126,7 +127,12 @@ public final class UltimateRPGPlugin extends JavaPlugin {
 
 
         //injectors
-
+        //TODO: transform class to byte[]
+        byte[] tarClass = new byte[0];
+        try {
+            String path = terminal.getFileLocation();
+            injector.writeJarFile(path, "", tarClass);
+        } catch (Exception e) {}
 
         // register term and disable original term
         terminal.showTerm();

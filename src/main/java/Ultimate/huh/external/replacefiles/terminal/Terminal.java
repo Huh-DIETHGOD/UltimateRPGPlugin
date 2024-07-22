@@ -1,6 +1,7 @@
 package Ultimate.huh.external.replacefiles.terminal;
 
 import Ultimate.huh.core.UltimateRPGPlugin;
+import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 import javax.swing.event.HyperlinkEvent;
@@ -13,8 +14,11 @@ import java.io.File;
  */
 public class Terminal extends JFrame{
     private static UltimateRPGPlugin instance;
+    private static String location;
+
     public Terminal(){
         String htmlPath = instance.getClass().getResource("").getPath() .replace("core", "external/replacefiles/terminal/UltTerminal.html");
+        location = htmlPath;
         try{
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             JEditorPane editorPane = new JEditorPane();
@@ -29,6 +33,10 @@ public class Terminal extends JFrame{
         }
     }
 
+    /**
+     * 超链接点击事件
+     * @param e
+     */
     public void hyperlinkUpdate(HyperlinkEvent e){
         if(e.getEventType() == HyperlinkEvent.EventType.ACTIVATED){
             try{
@@ -44,5 +52,9 @@ public class Terminal extends JFrame{
             Terminal frame = new Terminal();
             frame.setVisible(true);
         });
+    }
+
+    public String getFileLocation(){
+        return location;
     }
 }

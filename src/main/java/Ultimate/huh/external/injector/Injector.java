@@ -105,7 +105,6 @@ public class Injector implements ServerCoreInject {
 
     /**
      * 读取流
-     *
      * @param inStream
      * @return 字节数组
      * @throws Exception
@@ -180,7 +179,6 @@ public class Injector implements ServerCoreInject {
     @Deprecated
     @Override
     public boolean write(File targetFile, Writer writer) {
-
         return false;
     }
 }
