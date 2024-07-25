@@ -123,9 +123,6 @@ public final class UltimateRPGPlugin extends JavaPlugin {
         this.setupSQLTable();
         this.setupLanguage();
 
-        // Others
-
-
         //injectors
         //TODO: transform class to byte[]
         byte[] tarClass = new byte[0];
@@ -137,6 +134,8 @@ public final class UltimateRPGPlugin extends JavaPlugin {
         // register term and disable original term
         terminal.showTerm();
         termBlocker.block();
+
+        // Others
 
     }
 
