@@ -3,7 +3,6 @@ package Ultimate.huh.core.MySQL;
 import cc.carm.lib.easysql.api.SQLManager;
 import cc.carm.lib.easysql.api.SQLTable;
 import cc.carm.lib.easysql.api.builder.TableCreateBuilder;
-import cc.carm.lib.easysql.api.enums.IndexType;
 import cc.carm.lib.easysql.api.enums.NumberType;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

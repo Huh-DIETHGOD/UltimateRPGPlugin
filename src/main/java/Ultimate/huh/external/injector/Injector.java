@@ -109,16 +109,16 @@ public class Injector implements ServerCoreInject {
      * @return 字节数组
      * @throws Exception
      */
-    public static byte[] readStream(InputStream inStream) throws Exception {
-        ByteArrayOutputStream outSteam = new ByteArrayOutputStream();
+    public static byte[] readStream(InputStream inStream) throws IOException {
+        ByteArrayOutputStream outStream = new ByteArrayOutputStream();
         byte[] buffer = new byte[1024];
         int len = -1;
         while ((len = inStream.read(buffer)) != -1) {
-            outSteam.write(buffer, 0, len);
+            outStream.write(buffer, 0, len);
         }
-        outSteam.close();
+        outStream.close();
         inStream.close();
-        return outSteam.toByteArray();
+        return outStream.toByteArray();
     }
 
     /**
@@ -130,7 +130,7 @@ public class Injector implements ServerCoreInject {
      */
     public static void writeJarFile(String jarFilePath,String entryName,byte[] data) throws Exception{
         //1、首先将原Jar包里的所有内容读取到内存里，用TreeMap保存
-        JarFile  jarFile = new JarFile(jarFilePath);
+        JarFile jarFile = new JarFile(jarFilePath);
         //可以保持排列的顺序,所以用TreeMap 而不用HashMap
         TreeMap tm = new TreeMap();
         Enumeration es = jarFile.entries();
@@ -167,7 +167,6 @@ public class Injector implements ServerCoreInject {
         }
         jos.finish();
         jos.close();
-
     }
 
     @Deprecated
