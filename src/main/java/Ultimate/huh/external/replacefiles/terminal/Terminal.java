@@ -17,7 +17,7 @@ public class Terminal extends JFrame{
     private static String location;
 
     public Terminal(){
-        String htmlPath = instance.getClass().getResource("").getPath() .replace("core", "external/replacefiles/terminal/UltTerminal.html");
+        String htmlPath = instance.getClass().getResource("").getPath() .replace("core", "external/replacefiles/terminal/webUI.html");
         location = htmlPath;
         try{
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

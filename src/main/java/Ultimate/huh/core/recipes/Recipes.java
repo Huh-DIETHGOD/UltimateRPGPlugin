@@ -7,7 +7,4 @@ public enum Recipes {
 
     // Accessory
 
-
-
-
 }

@@ -155,7 +155,6 @@ public class UtilScoreboard {
         return true;
     }
 
-
     /**
      * 玩家更新队列是否为空
      * @return  是否为空
@@ -247,7 +246,6 @@ public class UtilScoreboard {
         isRunning = true;
         return true;
     }
-
 
     public static void changeTeamOptions(Team team) {
         team.setOption(Team.Option.COLLISION_RULE, Team.OptionStatus.NEVER);
