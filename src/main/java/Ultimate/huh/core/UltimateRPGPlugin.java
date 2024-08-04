@@ -6,6 +6,7 @@ import Ultimate.huh.core.events.EventsManager;
 import Ultimate.huh.core.expansion.Environment;
 import Ultimate.huh.core.config.language.LanguageSetting;
 import Ultimate.huh.core.metrics.Metrics;
+import Ultimate.huh.core.recipes.RecipeFactory;
 import Ultimate.huh.core.scheduling.Scheduler;
 import Ultimate.huh.core.utils.UtilUpdateChecker;
 import Ultimate.huh.external.injector.Injector;
@@ -28,7 +29,6 @@ import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicReference;
@@ -51,6 +51,7 @@ public final class UltimateRPGPlugin extends JavaPlugin {
     private Injector injector;
     private Terminal terminal;
     private terminalBlocker termBlocker;
+    private RecipeFactory recipeFactory;
 
     public UltimateRPGPlugin(){
     }
@@ -283,6 +284,9 @@ public final class UltimateRPGPlugin extends JavaPlugin {
         return perms != null;
     }
 
+    private void setupRecipes() {
+        recipeFactory.
+    }
     public final void onLoad() {
         super.onLoad();
         getLogger().info("Plugin loading...");

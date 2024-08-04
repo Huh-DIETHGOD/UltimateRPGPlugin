@@ -12,6 +12,16 @@
     </style>
 </head>
 <body>
+    <div id="command" class="hand" onclick="getCommand()">Command</div>
+    <div id="output" class="hand" onclick="getOutput()">Output</div>
+    <div id="input" class="hand" onclick="getInput()">Input</div>
+    <div id="prompt" class="hand" onclick="getPrompt()">Prompt</div>
+    <div id="inputField" style="display: none">
+        <input type="text" id="inputText" onkeydown="if (event.keyCode == 13) {sendCommand(this.value); this.value = '';}">
+    </div>
+    <div id="outputField" style="display: none">
+        <textarea id="outputText" rows="10" cols="100" readonly="readonly"></textarea>
+    </div>
 <script>
     function sendCommand(command){
         var xhr = new XMLHttpRequest();
@@ -66,8 +76,6 @@
     }
 
 </script>
-
-
 
 </body>
 </html>
