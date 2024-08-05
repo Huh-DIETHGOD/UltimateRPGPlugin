@@ -7,5 +7,4 @@ public class RecipeFactory extends Recipe {
     public RecipeFactory(String name, Object[] recipe, Object result, NamespacedKey key) {
         super(name, recipe, result, key);
     }
-
 }
