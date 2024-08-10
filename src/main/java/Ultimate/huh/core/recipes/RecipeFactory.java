@@ -3,12 +3,17 @@ package Ultimate.huh.core.recipes;
 import Ultimate.huh.core.recipes.impl.KeyFactory;
 import Ultimate.huh.core.recipes.impl.Recipe;
 import org.bukkit.NamespacedKey;
-import org.bukkit.configuration.file.YamlConfiguration;
+import org.yaml.snakeyaml.Yaml;
+import org.yaml.snakeyaml.constructor.Constructor;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+import java.nio.file.Files;
+import java.util.Scanner;
 
 public class RecipeFactory extends Recipe {
     KeyFactory keyFactory = new KeyFactory();
@@ -17,33 +22,53 @@ public class RecipeFactory extends Recipe {
         super(name, recipe, result, key);
     }
 
-    public Recipe returenRecipe(){
-        Recipe recipe = this.readRecipes();
-        keyFactory.createKeys(recipe.getFile());
-        return this;
+    public static List<Object> readRecipes() throws IOException {
+        String filePath = "";
+        List<Object> data = new ArrayList<>();
+        Scanner scanner = new Scanner(new File(filePath));
+        String currentLine;
+        boolean inList = false;
+
+        while (scanner.hasNextLine()) {
+            currentLine = scanner.nextLine().trim();
+            if (currentLine.isEmpty()) {
+                continue;
+            }
+
+            if (currentLine.equals("-")) {
+                inList = true;
+                continue;
+            }
+
+            if (inList) {
+                data.add(currentLine);
+            } else {
+                if (currentLine.startsWith("- ") || currentLine.startsWith("  ")) {
+                    inList = true;
+                    data.add(currentLine.substring(2));
+                } else {
+                    String[] keyValue = currentLine.split(":", 2);
+                    if (keyValue.length == 2) {
+                        data.add(keyValue[0].trim());
+                        data.add(keyValue[1].trim());
+                    }
+                }
+            }
+        }
+        scanner.close();
+        return data;
     }
 
-    public static Recipe readRecipes() {
-        // 遍历并读取recipes路径下所有yml文件
-        String filepath = "plugins/UltimateRPG/recipes/recipes.yml";
-        File file = new File(filepath);
-        if (!file.exists()) {
-            return null;
-        }
-
-        try (InputStream inputStream = new FileInputStream(file)) {
-            YamlConfiguration config = new YamlConfiguration();
-            // recipe structure:
-            // ingredients: [a, b, c, a, b, c, a, b, c]
-            // result: d
-            String ingredientsStr = config.getString("ingredients");
-            String resultStr = config.getString("result");
-
-            String[] ingredients = ingredientsStr.split(",");
-            return new Recipe(file.getName(), ingredients, resultStr);
+    private static List<String> listYamlFiles(String directoryPath) {
+        try {
+            return Files.walk(Paths.get(directoryPath))
+                    .filter(Files::isRegularFile)
+                    .map(path -> path.toAbsolutePath().toString())
+                    .filter(path -> path.endsWith(".yaml"))
+                    .toList();
         } catch (IOException e) {
+            e.printStackTrace();
             return null;
         }
-
     }
 }

@@ -24,11 +24,6 @@ public class Recipe {
         this.key = key;
     }
 
-    public File getFile(){
-        String filepath = "plugins/UltimateRPG/recipes/recipes.yml";
-        return new File(filepath);
-    }
-
     public String getName() {
         return name;
     }
