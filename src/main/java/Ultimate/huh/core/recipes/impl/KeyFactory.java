@@ -6,7 +6,7 @@ import java.io.File;
 
 public class KeyFactory {
     NamespacedKey keys;
-    public NamespacedKey createKeys(File file) {
+    public NamespacedKey createKeys() {
         NamespacedKey key= NamespacedKey.randomKey();
         return key;
     }

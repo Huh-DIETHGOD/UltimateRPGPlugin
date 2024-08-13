@@ -3,11 +3,8 @@ package Ultimate.huh.core.recipes;
 import Ultimate.huh.core.recipes.impl.KeyFactory;
 import Ultimate.huh.core.recipes.impl.Recipe;
 import org.bukkit.NamespacedKey;
-import org.yaml.snakeyaml.Yaml;
-import org.yaml.snakeyaml.constructor.Constructor;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
