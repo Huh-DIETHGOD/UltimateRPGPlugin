@@ -1,40 +1,67 @@
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\permission\Permissions.java
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\scoreboard\impl\ScoreboardCreation.java
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\commands\CommandGUI.java
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\commands\CommandInfo.java
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\commands\CommandAnnouncement.java
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\scoreboard\impl\ScoreboardCreationStrategy.java
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\commands\impl\URPGCommands.java
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\commands\CommandStorage.java
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\events\EventPlayerRegister.java
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\utils\PlayerDataSaverUtil.java
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\MySQL\DataTable.java
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\UltimateRPG.java
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\events\EventPlayerMoveBeforeLogin.java
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\listeners\onPlayerMoveBeforeLoginListener.java
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\events\EventsManager.java
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\events\EventPlayerLogin.java
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\listeners\onXconomy.java
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\recipes\TestItem.java
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\holders\StorageHolder.java
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\utils\MsgUtil.java
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\commands\CommandSystemEnvironment.java
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\permission\Permission.java
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\utils\PlayerPermissionUtil.java
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\PluginDependent.java
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\commands\CommandRua.java
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\commands\CommandEasy_SQL.java
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\commands\CommandLogin.java
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\scheduling\RunnableTask.java
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\listeners\onGUIClickListener.java
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\metrics\Metrics.java
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\UltimateRPGPlugin.java
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\commands\impl\URPGCommandsRouter.java
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\commands\CommandRegister.java
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\utils\PlayerDataCheckerUtil.java
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\commands\CommandTest.java
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\gui\GUIInventory.java
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\Handler.java
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\scheduling\Scheduler.java
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\listeners\onPlayerLoginListener.java
-F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin\src\main\java\Ultimate\huh\core\utils\ScoreboardUtil.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\scheduling\Scheduler.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\UltimateRPGPlugin.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\listeners\onGUIClickListener.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\recipes\RecipeFactory.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\commands\CommandScoreboard.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\listeners\onXconomy.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\utils\UtilPlayerPermission.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\commands\CommandSQLConnectionCheck.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\metrics\Metrics.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\utils\UtilMsg.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\listeners\_termActionListener.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\commands\CommandAnnouncement.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\commands\CommandHelp.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\expansion\Environment.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\MySQL\URPGTable.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\events\EventsManager.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\utils\UtilPlayerDataSaver.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\events\EventPlayerRegister.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\commands\impl\URPGCommandsRouter.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\utils\UtilServerStatusTracker.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\events\EventPlayerHarm.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\holders\StorageHolder.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\commands\CommandLanguage.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\events\EventPlayerLogin.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\commands\impl\URPGCommandsFactory.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\commands\CommandRua.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\expansion\AttributableExpansion.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\recipes\impl\KeyFactory.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\state\defense\Defense.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\expansion\PlayerExpansion.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\scoreboard\impl\ScoreboardCreationStrategyImpl.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\MySQL\URPGDB.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\external\replacefiles\terminal\Terminal.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\commands\CommandGUI.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\router\Router.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\commands\CommandStorage.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\permission\Permissions.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\utils\UtilPlayerDataChecker.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\Handler.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\state\intellgence\Intelligence.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\listeners\onPlayerRegister.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\recipes\impl\Recipe.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\UltimateRPG.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\scheduling\RunnableTask.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\commands\CommandInfo.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\listeners\onPlayerLoginListener.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\external\injector\Injector.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\events\EventPlayerAttack.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\external\impl\ServerCoreInject.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\scoreboard\impl\NoFlickeringScoreboardCreationStrategyImpl.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\gui\GUIInventory.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\listeners\onPlayerQuitListener.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\PluginDependent.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\commands\CommandLogin.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\listeners\onPlayerHurt.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\events\EventPlayerMoveBeforeLogin.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\commands\CommandState.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\scoreboard\ScoreboardCreation.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\utils\UtilScoreboard.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\config\language\LanguageSetting.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\commands\CommandRegister.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\utils\UtilUpdateChecker.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\permission\Permission.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\commands\CommandSQL.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\external\replacefiles\terminal\terminalBlocker.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\commands\CommandSystemEnvironment.java
+F:\File\JetBrains\Projects\IdeaProjects\UltimateRPGPlugin 1.20.2\src\main\java\Ultimate\huh\core\commands\CommandTest.java
