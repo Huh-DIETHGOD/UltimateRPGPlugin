@@ -19,6 +19,11 @@ public class RecipeFactory extends Recipe {
         super(name, recipe, result, key);
     }
 
+    /**
+     * 读取自定义文件并返回recipe
+     * @return
+     * @throws IOException
+     */
     public static List<Object> readRecipes() throws IOException {
         String filePath = "";
         List<Object> data = new ArrayList<>();
