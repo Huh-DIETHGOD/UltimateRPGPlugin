@@ -10,4 +10,5 @@
   ### Config:
     1.The location of config file is Server/Plugins/UltimateRPG/config.yml
     2.(useage of the parameters will be realsed soon)
+    3.Costume recpies
     
