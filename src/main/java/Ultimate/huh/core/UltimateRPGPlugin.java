@@ -23,6 +23,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.maven.artifact.versioning.DefaultArtifactVersion;
 import org.bukkit.Bukkit;
 import org.bukkit.command.PluginCommand;
+import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.RegisteredServiceProvider;
@@ -285,9 +286,9 @@ public final class UltimateRPGPlugin extends JavaPlugin {
         return perms != null;
     }
 
-    private void setupRecipes() {
+    private void setupRecipes() throws InvalidConfigurationException {
         try {
-            recipeFactory.readRecipes();
+            recipeFactory.registerRecipes();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

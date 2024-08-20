@@ -1,13 +1,13 @@
 package Ultimate.huh.core.recipes.impl;
 
+import Ultimate.huh.core.UltimateRPGPlugin;
 import org.bukkit.NamespacedKey;
-
-import java.io.File;
 
 public class KeyFactory {
     NamespacedKey keys;
-    public NamespacedKey createKeys() {
-        NamespacedKey key= NamespacedKey.randomKey();
+    public NamespacedKey generateKey(String name) {
+        UltimateRPGPlugin instance = new UltimateRPGPlugin();
+        NamespacedKey key= new NamespacedKey(instance, name);
         return key;
     }
 }

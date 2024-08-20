@@ -1,6 +1,7 @@
 package Ultimate.huh.core.recipes.impl;
 
 import org.bukkit.NamespacedKey;
+import org.bukkit.inventory.ItemStack;
 
 import java.io.File;
 
@@ -10,6 +11,7 @@ public class Recipe {
     private Object[] recipe;
     private Object result;
     private NamespacedKey key;
+    private ItemStack stack;
 
     public Recipe(String name, Object[] recipe, Object result) {
         this.name = name;
