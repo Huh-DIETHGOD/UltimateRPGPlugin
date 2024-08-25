@@ -62,8 +62,8 @@ public class RecipeFactory extends Recipe {
     }
 
     public void registerRecipes() throws IOException, InvalidConfigurationException {
+        // 列为2维数组
         List<Object> data = readRecipes();
-
         try {
             String name = (String) data.get(0);
             Object[] recipe = new Object[data.size() - 3];
@@ -74,14 +74,11 @@ public class RecipeFactory extends Recipe {
             NamespacedKey key = (NamespacedKey) data.get(data.size() - 1);
             RecipeFactory recipeFactory = new RecipeFactory(name, recipe, result, key);
             recipeFactory.registerRecipes();
+
         } catch (IOException | InvalidConfigurationException e) {
             e.printStackTrace();
         }
     }
-
-
-
-
 
     private static List<String> listYamlFiles(String directoryPath) {
         try {
