@@ -288,6 +288,7 @@ public final class UltimateRPGPlugin extends JavaPlugin {
     }
 
     private void setupRecipes() throws InvalidConfigurationException, IOException, URISyntaxException{
+
         recipeFactory.registerRecipes();
     }
     public final void onLoad() {

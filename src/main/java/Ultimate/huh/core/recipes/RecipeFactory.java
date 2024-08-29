@@ -4,9 +4,12 @@ import Ultimate.huh.core.UltimateRPGPlugin;
 import Ultimate.huh.core.recipes.impl.KeyFactory;
 import Ultimate.huh.core.recipes.impl.Recipe;
 import Ultimate.huh.core.utils.UtilGetJarLocation;
+import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.ShapedRecipe;
 
 import java.io.File;
 import java.io.IOException;
@@ -75,22 +78,32 @@ public class RecipeFactory extends Recipe {
     public void registerRecipes() throws IOException, InvalidConfigurationException, URISyntaxException {
         // 列为2维Obj组
         Object[][] data = readRecipes();
-        try {
-            for (Object[] recipeData : data) {
-
-                String name = (String) recipeData[0];
-                Object[] recipe = new Object[8];
-                for (int i = 3; i < 12; i++) {
-                    recipe[i] = recipeData[i];
-                }
-                Object result = recipeData[1];
-                NamespacedKey key = (NamespacedKey) recipeData[2];
-                RecipeFactory recipeFactory = new RecipeFactory(name, recipe, result, key);
-                recipeFactory.registerRecipes();
-
+        for (Object[] recipeData : data) {
+            String name = (String) recipeData[0];
+            Object[] recipe = new Object[8];
+            for (int i = 3; i < 12; i++) {
+                recipe[i] = recipeData[i];
             }
-        } catch (IOException | InvalidConfigurationException e) {
-            e.printStackTrace();
+            ItemStack result = (ItemStack) recipeData[1];
+            NamespacedKey key = (NamespacedKey) recipeData[2];
+
+
+
+            new ShapedRecipe(key, result)
+                    .shape(
+                    recipe[3].toString()+recipe[4].toString()+recipe[5].toString(),
+                    recipe[6].toString()+recipe[7].toString()+recipe[8].toString(),
+                    recipe[9].toString()+recipe[10].toString()+recipe[11].toString()
+            ).setIngredient((Character) recipe[3], Material.ACACIA_BUTTON)
+            .setIngredient((Character) recipe[4], Material.ACACIA_BUTTON)
+            .setIngredient((Character) recipe[5], Material.ACACIA_BUTTON)
+            .setIngredient((Character) recipe[6], Material.ACACIA_BUTTON)
+            .setIngredient((Character) recipe[7], Material.ACACIA_BUTTON)
+            .setIngredient((Character) recipe[8], Material.ACACIA_BUTTON)
+            .setIngredient((Character) recipe[9], Material.ACACIA_BUTTON)
+            .setIngredient((Character) recipe[10], Material.ACACIA_BUTTON)
+            .setIngredient((Character) recipe[11], Material.ACACIA_BUTTON)
+            .setGroup(name);
         }
     }
 
