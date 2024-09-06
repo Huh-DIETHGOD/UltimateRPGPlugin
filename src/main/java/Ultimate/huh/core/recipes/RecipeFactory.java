@@ -86,9 +86,9 @@ public class RecipeFactory extends Recipe {
             }
             ItemStack result = (ItemStack) recipeData[1];
             NamespacedKey key = (NamespacedKey) recipeData[2];
-
-
-
+            /**
+             * TODO: 改进读取算法
+             */
             new ShapedRecipe(key, result)
                     .shape(
                     recipe[3].toString()+recipe[4].toString()+recipe[5].toString(),
