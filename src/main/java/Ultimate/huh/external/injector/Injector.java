@@ -1,21 +1,14 @@
 package Ultimate.huh.external.injector;
 
 import Ultimate.huh.core.UltimateRPGPlugin;
+import Ultimate.huh.core.utils.UtilGetJarLocation;
 import Ultimate.huh.external.impl.ServerCoreInject;
 
 import java.awt.*;
-import java.io.File;
-import java.io.IOException;
-import java.io.Writer;
+import java.io.*;
 import java.net.URLDecoder;
 import java.nio.Buffer;
-import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.Map;
@@ -33,6 +26,7 @@ public class Injector implements ServerCoreInject {
     private Writer writer;
     private File serverCore = new File("");
     private UltimateRPGPlugin instance;
+    private UtilGetJarLocation util;
 
     private Injector(){
 
@@ -42,20 +36,14 @@ public class Injector implements ServerCoreInject {
      * 获取插件位置
      * @return 插件位置
      */
-    public File fileTracker(){
-        File file= new File(instance.getClass().getClassLoader().getResource("").getFile());
-        String tarPath = file.getAbsolutePath();
-        try{
+    public File fileTracker() throws UnsupportedEncodingException {
+        String tarPath = util.getJarLocationByURL();
             tarPath = URLDecoder.decode(tarPath, "UTF-8");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
         return new File(tarPath);
     }
 
     /**
      * 读取jar包所有的文件内容，显示JAR文件内容列表
-     * @param jarFileName
      * @throws IOException
      */
     public static void readJARList(String jarFilePath) throws IOException {
