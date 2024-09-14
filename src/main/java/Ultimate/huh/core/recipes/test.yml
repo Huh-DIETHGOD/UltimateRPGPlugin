@@ -1,4 +1,4 @@
 Recipe:
   Name: abc
   Result: abc
-  Resource: , , , , , , , ,
+  Resource: a, b, a, b, a, b, a, b, a
