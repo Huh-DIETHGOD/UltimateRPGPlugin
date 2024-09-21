@@ -10,6 +10,7 @@ import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,8 +25,8 @@ public class RecipeFactory extends Recipe {
     KeyFactory keyFactory = new KeyFactory();
     UtilGetJarLocation util;
 
-    public RecipeFactory(String name, Object[] recipe, Object result, NamespacedKey key) {
-        super(name, recipe, result, key);
+    public RecipeFactory(String name, Object[][] recipe, ItemStack result, NamespacedKey key, ItemMeta meta) {
+        super(name, recipe, result, key, meta);
     }
 
     /**
