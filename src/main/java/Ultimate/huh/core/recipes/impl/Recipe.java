@@ -21,6 +21,10 @@ public class Recipe {
         this.meta = meta;
     }
 
+    public void itemFunction(){
+
+    }
+
     public String getName() {
         return name;
     }
