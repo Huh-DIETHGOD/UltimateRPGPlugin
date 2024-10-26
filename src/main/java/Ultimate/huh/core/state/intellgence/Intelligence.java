@@ -15,6 +15,10 @@ public abstract class Intelligence implements Player{
         return intelligence;
     }
 
+    public void calculator(float intelligence){
+
+    }
+
     public void setIntelligence(float intelligence) {
         this.intelligence = intelligence;
     }
