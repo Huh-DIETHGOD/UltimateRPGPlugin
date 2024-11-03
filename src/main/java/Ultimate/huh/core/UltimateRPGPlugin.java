@@ -6,7 +6,7 @@ import Ultimate.huh.core.events.EventsManager;
 import Ultimate.huh.core.expansion.Environment;
 import Ultimate.huh.core.config.language.LanguageSetting;
 import Ultimate.huh.core.metrics.Metrics;
-import Ultimate.huh.core.recipes.RecipeFactory;
+import Ultimate.huh.core.modify.recipes.RecipeFactory;
 import Ultimate.huh.core.scheduling.Scheduler;
 import Ultimate.huh.core.utils.UtilUpdateChecker;
 import Ultimate.huh.external.injector.Injector;

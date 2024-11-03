@@ -1,8 +1,7 @@
-package Ultimate.huh.core.recipes;
+package Ultimate.huh.core.modify.recipes;
 
-import Ultimate.huh.core.UltimateRPGPlugin;
-import Ultimate.huh.core.recipes.impl.KeyFactory;
-import Ultimate.huh.core.recipes.impl.Recipe;
+import Ultimate.huh.core.modify.recipes.impl.KeyFactory;
+import Ultimate.huh.core.modify.recipes.impl.Recipe;
 import Ultimate.huh.core.utils.UtilGetJarLocation;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -12,14 +11,11 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.List;
 import java.nio.file.Files;
-import java.util.Scanner;
 
 public class RecipeFactory extends Recipe {
     KeyFactory keyFactory = new KeyFactory();

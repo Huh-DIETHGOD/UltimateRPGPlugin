@@ -1,4 +1,4 @@
-package Ultimate.huh.core.recipes.impl;
+package Ultimate.huh.core.modify.recipes.impl;
 
 import Ultimate.huh.core.UltimateRPGPlugin;
 import org.bukkit.NamespacedKey;

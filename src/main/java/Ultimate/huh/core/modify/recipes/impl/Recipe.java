@@ -1,10 +1,8 @@
-package Ultimate.huh.core.recipes.impl;
+package Ultimate.huh.core.modify.recipes.impl;
 
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-
-import java.io.File;
 
 public class Recipe {
     private String name;

@@ -1,4 +1,4 @@
-package Ultimate.huh.core.state.defense;
+package Ultimate.huh.core.modify.state.defense;
 
 import org.bukkit.entity.Player;
 
