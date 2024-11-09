@@ -21,15 +21,19 @@ public abstract class Intelligence implements Player{
         return intelligence;
     }
 
-    public float calculator(float[] bonus, HashMap map) {
-        //final intelligence = basicIntelligence * bonus[0] * bonus[1] * bonus[2]
-        // get player lass level
-        intelligence = basicIntelligence*bonus[0]*bonus[1]*bonus[2];
-        return intelligence;
-    }
-
     public void setIntelligence(float intelligence) {
         this.intelligence = intelligence;
+    }
+
+    public void addIntelligence(float addUp){
+        this.intelligence = this.intelligence + addUp;
+    }
+
+    public float calculator(float[] bonus, HashMap map) {
+        //final intelligence = basicIntelligence * bonus[0] * bonus[1] * bonus[2]
+        // get player class level
+        intelligence = basicIntelligence*bonus[0]*bonus[1]*bonus[2];
+        return intelligence;
     }
 
     public float[] getBonus() {
