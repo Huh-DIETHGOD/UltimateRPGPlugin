@@ -22,7 +22,7 @@ public abstract class ClassFactory implements Player{
 
     public Map<Integer, Integer> leftClickAbility(EventPlayerAttack eventPlayerAttack) {
         player = eventPlayerAttack.getPlayer();
-        playerClass = player.getPlayerClass();
+        playerClass = getPlayerClass(player);
         result.put(1, 1);
         return result;
     }
