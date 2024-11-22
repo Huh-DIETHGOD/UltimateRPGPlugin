@@ -8,7 +8,6 @@ import me.yic.xconomy.api.event.NonPlayerAccountEvent;
 import me.yic.xconomy.api.event.PlayerAccountEvent;
 
 public class onXconomy implements Listener {
-    //监听所有转账事件（全局事件除外）
     //Listen to all transfer events (except global events)
     @EventHandler
     private void listenAccount(AccountEvent event) {
@@ -16,7 +15,6 @@ public class onXconomy implements Listener {
         UtilMsg.info(event.getamount().toString());
     }
 
-    //监听所有非玩家账户转账事件
     //Listen to all non-player account transfer events
     @EventHandler
     private void listenNonAccount(NonPlayerAccountEvent event) {
@@ -24,7 +22,6 @@ public class onXconomy implements Listener {
         UtilMsg.info(event.getamount().toString());
     }
 
-    //监听所有玩家账户转账事件（全局事件除外）
     //Listen to all player account transfer events (except global events)
     @EventHandler
     private void listenPlayerAccount(PlayerAccountEvent event) {

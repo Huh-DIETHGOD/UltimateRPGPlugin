@@ -27,7 +27,7 @@ public abstract class ClassFactory implements Player{
         return result;
     }
 
-       /**
+    /**
      * Gets the player's class.
      *
      * @param player The Player object whose class is to be retrieved
