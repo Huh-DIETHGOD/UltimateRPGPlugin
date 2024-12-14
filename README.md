@@ -5,7 +5,9 @@ But the plugin is still under develop.And the current version is not sufficient 
   ## Guide:
   ### Config:
 1.The location of config file is Server/Plugins/UltimateRPG/config.yml
+
 2.(useage of the parameters will be realsed soon)
+
 3.Costume recpies
   ### Update Log:
 coming soon: Class and ability  
