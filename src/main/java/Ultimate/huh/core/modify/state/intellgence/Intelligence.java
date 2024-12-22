@@ -29,7 +29,7 @@ public abstract class Intelligence implements Player{
         this.intelligence = this.intelligence + addUp;
     }
 
-    public float calculator(float[] bonus, HashMap map) {
+    public float calculator(float[] bonus) {
         //final intelligence = basicIntelligence * bonus[0] * bonus[1] * bonus[2]
         // get player class level
         intelligence = basicIntelligence*bonus[0]*bonus[1]*bonus[2];

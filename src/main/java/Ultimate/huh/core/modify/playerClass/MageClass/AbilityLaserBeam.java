@@ -16,11 +16,14 @@ public class AbilityLaserBeam extends AbilityFactory {
     public AbilityLaserBeam() {
         player = onAttack.getPlayer();
         if (player != null){
-            intelligence.calculator(null, null);
+            player.getHealth();
+            player.getTargetBlockExact(100);
+            intelligence.calculator(null);
         }
         // Beam damage function:
         // Dmg(strength, critical chance, critical damage, calculator, )
         // =(strength * critical damage)*
+        float damage = 0;
     }
 
     public void laserBeam() {
