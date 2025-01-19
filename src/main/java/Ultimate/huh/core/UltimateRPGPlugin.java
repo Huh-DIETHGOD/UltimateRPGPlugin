@@ -56,6 +56,7 @@ public final class UltimateRPGPlugin extends JavaPlugin {
     private terminalBlocker termBlocker;
     private RecipeFactory recipeFactory;
 
+    //Main constructor
     public UltimateRPGPlugin(){
     }
 

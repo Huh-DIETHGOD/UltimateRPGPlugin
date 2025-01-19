@@ -13,6 +13,4 @@ public abstract class Health implements Entity {
     public void setHealth(float health) {
         this.health = health;
     }
-
-
 }
