@@ -5,6 +5,7 @@ import Ultimate.huh.core.commands.impl.URPGCommandsRouter;
 import Ultimate.huh.core.events.EventsManager;
 import Ultimate.huh.core.expansion.Environment;
 import Ultimate.huh.core.config.language.LanguageSetting;
+import Ultimate.huh.core.listeners.ListenerManager;
 import Ultimate.huh.core.metrics.Metrics;
 import Ultimate.huh.core.modify.recipes.RecipeFactory;
 import Ultimate.huh.core.scheduling.Scheduler;
@@ -45,6 +46,7 @@ public final class UltimateRPGPlugin extends JavaPlugin {
     private LanguageSetting languageSetting;
     private String language;
     private final EventsManager eventsManager = new EventsManager();
+    private final ListenerManager listenerManager = new ListenerManager();
     private static Economy econ = null;
     private static Permission perms = null;
     private static Chat chat = null;
@@ -124,6 +126,7 @@ public final class UltimateRPGPlugin extends JavaPlugin {
         // Integration registration
         this.setupCommand();
         this.setupEvents();
+        this.setupListener();
         this.setupSQLManager();
         this.setupSQLTable();
         this.setupLanguage();
@@ -174,6 +177,11 @@ public final class UltimateRPGPlugin extends JavaPlugin {
         }
     }
 
+    private void setupListener() {
+        if (Bukkit.getPluginManager() != null){
+            Bukkit.getPluginManager().registerEvents(this.getListenerManager(), this);
+        }
+    }
     public void setupSQLManager() {
         this.saveDefaultConfig();
         this.reloadConfig();
@@ -309,6 +317,14 @@ public final class UltimateRPGPlugin extends JavaPlugin {
 
     public EventsManager getEventsManager() {
         return this.eventsManager;
+    }
+
+    public ListenerManager getListenerManager() {
+        return this.listenerManager;
+    }
+
+    public LanguageSetting getLanguageSetting() {
+        return this.languageSetting;
     }
 
     public SQLManager getSqlManager() {
